@@ -24,10 +24,13 @@ SPARK **summarizes, ranks and interprets** those investigations for the habitats
 |---|---|
 | **Missions** | Pick a habitat (ISS, deep-space spacecraft, Moon base, rover, Mars base, spacesuit). All 24 investigations are ranked with a transparent six-factor score you can re-weight, plus a chart showing what drives each score. |
 | **Test Conditions** | Every PSI test plotted by oxygen and pressure against habitat design ranges, a density heatmap, an airflow chart and a FLEX suppression map. Empty habitat zones are the research gaps. |
-| **Investigations** | Explorer with filters and a page per study: AI summary, sourced key findings, charts of its own tests, what varied and what was held constant, sensors, DOI and publications. |
+| **Investigations** | Explorer with filters (pillar, platform, **hardware family**: ACME/CIR, MDCA/CIR, MSG flow duct, Cygnus, smoke instruments) and a page per study: AI summary, sourced key findings, charts of its own tests, what varied and what was held constant, sensors, DOI and publications. |
+| **Data export** | **CSV and JSON downloads** of the normalized tests, per investigation or all 2,123 at once, with a data dictionary, for predictive flammability modeling. |
 | **Compare** | Two to four investigations side by side with oxygen and pressure ranges, an attribute table and an AI-written comparison. |
 | **Ask SPARK** | Plain-language questions answered from PSI evidence with clickable citations, e.g. `[PSI-25 p.12]`. |
-| **Insights** | Lessons from Apollo 1, Apollo 13, Mir and Artemis II; myths microgravity research overturned; data gaps for the Moon and Mars; Earth spinoffs. |
+| **Insights** | Lessons from Apollo 1, Apollo 13, Mir and Artemis II; myths microgravity research overturned; **next-generation equipment** (detectors, suppression, extinguishers, material screening, ventilation controls, fire models) linked to the evidence; data gaps for the Moon and Mars; Earth spinoffs. |
+
+**Scope:** fires in crewed habitats. Rocket engine and propellant fires are outside the PSI data and this project.
 
 ## Key findings surfaced from the data
 

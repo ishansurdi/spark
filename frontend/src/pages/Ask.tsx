@@ -55,6 +55,11 @@ export function Ask() {
               <button key={ex} onClick={() => submit(ex)} className="border border-white/25 px-3 py-1.5 text-left text-sm text-white/80 hover:border-white hover:text-white">{ex}</button>
             ))}
           </div>
+          <p className="mt-5 max-w-3xl text-xs text-white/50">
+            Scope: fires in crewed habitats (cabin materials, smoke, suppression). Rocket engine and propellant fires are outside the PSI
+            data, so SPARK does not answer them. PSI holds microgravity data only; Moon and Mars answers are bounded by microgravity and
+            1-g results.
+          </p>
         </Container>
       </section>
 
