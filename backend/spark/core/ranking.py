@@ -93,6 +93,9 @@ def reasons(inv: dict, factor_values: dict[str, float], near: int, env: Environm
     out = []
     if near:
         out.append(f"{near} tests within reach of {env.name} oxygen and pressure levels")
+    elif factor_values["atmosphere"] < 0.3 and inv["stats"]["o2_pct"]:
+        low, high = inv["stats"]["o2_pct"]
+        out.append(f"Caution: tested only at {low:g}-{high:g} % O2, not at {env.name} conditions")
     top_pillar = max(inv["pillars"], key=inv["pillars"].get)
     if factor_values["pillars"] >= 0.5:
         out.append(f"Strong {top_pillar} focus, which {env.name} needs")

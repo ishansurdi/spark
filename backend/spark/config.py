@@ -23,7 +23,7 @@ class Settings(BaseSettings):
 
     gemini_api: str = ""
     gemini_models: list[str] = ["gemini-3-flash-preview", "gemini-3.1-flash-lite", "gemini-flash-lite-latest"]
-    gemini_timeout_s: float = 60.0
+    gemini_timeout_s: float = 25.0  # per model; a slow model falls through to the next one
     cors_origins: list[str] = ["*"]
 
 
