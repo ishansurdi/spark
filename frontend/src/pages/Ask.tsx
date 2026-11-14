@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
 import { EnvironmentPicker } from "../components/EnvironmentPicker";
 import { RichText } from "../components/RichText";
-import { Card, ErrorBox, InvestigationLink, Loading, PageHeader, Pill } from "../components/ui";
+import { Container, ErrorBox, Eyebrow, InvestigationLink, Loading, Pill, Section } from "../components/ui";
 import { useApi } from "../hooks/useApi";
 import { api } from "../lib/api";
 import type { AskResponse } from "../lib/types";
@@ -25,6 +25,7 @@ export function Ask() {
 
   const submit = (text: string) => {
     if (text.trim().length < 3 || state.loading) return;
+    setQuestion(text);
     setState({ loading: true, error: null });
     api.ask(text.trim(), envId || undefined)
       .then((answer) => { setHistory((h) => [answer, ...h]); setQuestion(""); setState({ loading: false, error: null }); })
@@ -33,51 +34,78 @@ export function Ask() {
   const onSubmit = (e: FormEvent) => { e.preventDefault(); submit(question); };
 
   return (
-    <div>
-      <PageHeader title="Ask SPARK" subtitle="Ask a fire-safety question in plain language. SPARK searches the PSI investigations and their final reports, then answers with citations you can check." />
-      <Card className="mb-6">
-        <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">Optional: focus on a habitat</div>
-        {envs.data && <EnvironmentPicker environments={envs.data} value={envId} onChange={(id) => setEnvId(id === envId ? "" : id)} />}
-        <form onSubmit={onSubmit} className="mt-4 flex flex-col gap-2 sm:flex-row">
-          <input value={question} onChange={(e) => setQuestion(e.target.value)} maxLength={600}
-            placeholder="e.g. How much CO₂ does it take to put out a fuel fire in microgravity?"
-            className="flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:border-orange-400 focus:outline-none" />
-          <button disabled={state.loading} className="rounded-xl bg-orange-500 px-5 py-3 text-sm font-medium text-white hover:bg-orange-400 disabled:opacity-40">Ask</button>
-        </form>
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {EXAMPLES.map((ex) => (
-            <button key={ex} onClick={() => submit(ex)} className="rounded-full bg-white/5 px-3 py-1 text-left text-xs text-slate-300 hover:bg-white/10">{ex}</button>
-          ))}
-        </div>
-      </Card>
-      {state.loading && <Loading label="Searching PSI reports and drafting an answer…" />}
-      {state.error && <ErrorBox message={state.error} />}
-      <div className="space-y-6">{history.map((h, i) => <Answer key={history.length - i} answer={h} />)}</div>
-    </div>
+    <>
+      <section className="bg-night text-white">
+        <Container className="py-14 md:py-20">
+          <Eyebrow dark>Ask SPARK · AI research assistant</Eyebrow>
+          <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight md:text-5xl">Ask a fire-safety question. Get an answer you can check.</h1>
+          <p className="mt-4 max-w-2xl text-lg text-white/70">
+            SPARK searches 24 PSI investigations and 4,000+ passages from their final reports, then answers with citations to the exact source.
+          </p>
+          <form onSubmit={onSubmit} className="mt-8 flex max-w-4xl flex-col gap-0 sm:flex-row">
+            <input value={question} onChange={(e) => setQuestion(e.target.value)} maxLength={600} aria-label="Your question"
+              placeholder="e.g. How much CO₂ does it take to put out a fuel fire in microgravity?"
+              className="flex-1 border-2 border-white bg-white px-5 py-4 text-base text-ink placeholder:text-ink-3 focus:outline-none" />
+            <button disabled={state.loading} className="bg-accent px-8 py-4 text-base font-semibold text-white hover:bg-accent-dark disabled:opacity-50">
+              {state.loading ? "Searching…" : "Ask"}
+            </button>
+          </form>
+          <div className="mt-5 flex max-w-5xl flex-wrap gap-2">
+            {EXAMPLES.map((ex) => (
+              <button key={ex} onClick={() => submit(ex)} className="border border-white/25 px-3 py-1.5 text-left text-sm text-white/80 hover:border-white hover:text-white">{ex}</button>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <div className="border-b border-line bg-paper-2">
+        <Container className="py-6">
+          <div className="mb-3 font-mono text-xs uppercase tracking-[0.16em] text-ink-3">Optional: focus answers on a habitat {envId && <button className="ml-2 text-accent-dark underline" onClick={() => setEnvId("")}>clear</button>}</div>
+          {envs.data && <EnvironmentPicker compact environments={envs.data} value={envId} onChange={(id) => setEnvId(id === envId ? "" : id)} />}
+        </Container>
+      </div>
+
+      <Section>
+        {state.loading && <Loading label="Searching PSI reports and drafting a cited answer…" />}
+        {state.error && <ErrorBox message={state.error} />}
+        {!history.length && !state.loading && (
+          <p className="max-w-2xl text-ink-3">Answers appear here with the evidence they used. Every claim links back to its PSI investigation.</p>
+        )}
+        <div className="space-y-12">{history.map((h, i) => <Answer key={history.length - i} answer={h} />)}</div>
+      </Section>
+    </>
   );
 }
 
 function Answer({ answer }: { answer: AskResponse }) {
   return (
-    <Card>
-      <div className="mb-3 text-sm font-semibold text-white">{answer.question}</div>
-      <RichText text={answer.answer} />
-      <div className="mt-3 flex items-center gap-2 text-xs text-slate-500">
-        {answer.ai ? <Pill className="bg-orange-500/15 text-orange-200 ring-orange-500/30">AI · {answer.model}</Pill> : <Pill className="bg-white/5 text-slate-300 ring-white/10">Evidence only</Pill>}
-        Answers are generated from the evidence below; verify before use.
+    <article className="grid gap-8 lg:grid-cols-[1fr_380px]">
+      <div>
+        <Eyebrow>Question</Eyebrow>
+        <h2 className="mt-2 text-2xl font-bold leading-snug">{answer.question}</h2>
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          {answer.ai ? <Pill className="bg-ink text-white">AI · {answer.model}</Pill> : <Pill className="bg-paper-2 text-ink">Evidence only</Pill>}
+          {answer.environment && <Pill className="bg-paper-2 text-ink">Habitat: {answer.environment.replace("_", " ")}</Pill>}
+        </div>
+        <div className="mt-6"><RichText text={answer.answer} /></div>
+        <p className="mt-6 text-xs text-ink-3">Generated from the evidence shown. AI can make mistakes; verify critical decisions against the cited sources.</p>
       </div>
-      <details className="mt-4" open={!answer.ai}>
-        <summary className="cursor-pointer text-sm text-slate-400 hover:text-white">Evidence used ({answer.citations.length})</summary>
-        <ul className="mt-3 space-y-3">
+      <aside>
+        <div className="border-b-2 border-ink pb-2 font-mono text-xs uppercase tracking-[0.16em] text-ink">Evidence used ({answer.citations.length})</div>
+        <ol className="divide-y divide-line">
           {answer.citations.map((c, i) => (
-            <li key={i} className="text-sm">
-              <InvestigationLink id={c.investigation} label={`${c.short ?? c.investigation} (${c.investigation})`} />
-              <span className="text-xs text-slate-500"> · {c.source}{c.page ? `, p. ${c.page}` : ""}</span>
-              <p className="mt-1 text-xs leading-relaxed text-slate-400">{c.excerpt}…</p>
+            <li key={i} className="py-3">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono text-xs text-ink-3">{String(i + 1).padStart(2, "0")}</span>
+                <InvestigationLink id={c.investigation} label={c.short ?? c.investigation} />
+                <span className="font-mono text-[0.68rem] text-ink-3">{c.investigation}{c.page ? ` · p.${c.page}` : ""}</span>
+              </div>
+              <div className="mt-0.5 text-xs font-medium text-ink-2">{c.source}</div>
+              <p className="mt-1 line-clamp-3 text-xs leading-relaxed text-ink-3">{c.excerpt}…</p>
             </li>
           ))}
-        </ul>
-      </details>
-    </Card>
+        </ol>
+      </aside>
+    </article>
   );
 }
