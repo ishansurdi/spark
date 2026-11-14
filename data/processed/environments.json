@@ -1,0 +1,193 @@
+[
+ {
+  "id": "iss",
+  "name": "Space station (ISS)",
+  "gravity_g": 0.0,
+  "description": "Long-duration microgravity outpost in low Earth orbit with a sea-level-like atmosphere.",
+  "o2_pct": [
+   20.5,
+   23.0
+  ],
+  "pressure_psi": [
+   14.2,
+   14.9
+  ],
+  "ventilation_cm_s": [
+   5,
+   20
+  ],
+  "pillar_needs": {
+   "prevention": 0.4,
+   "detection": 0.3,
+   "suppression": 0.3
+  },
+  "considerations": [
+   "Microgravity: no buoyancy, so flames rely on ventilation flow and diffusion for oxygen.",
+   "Typical ventilation speeds (~10 cm/s) sit near the minimum of the solid-material flammability limit curve.",
+   "Evacuation to a docked vehicle is possible but escape routes can be blocked (Mir 1997)."
+  ],
+  "sources": [
+   "Researcher's Guide to ISS Combustion Science, pp. 21, 31",
+   "25 Years Ago: Fire Aboard Space Station Mir (NASA)"
+  ]
+ },
+ {
+  "id": "transit",
+  "name": "Deep-space spacecraft",
+  "gravity_g": 0.0,
+  "description": "Crew vehicles in transit to the Moon or Mars (e.g. Orion-class); no quick return to Earth.",
+  "o2_pct": [
+   21.0,
+   26.5
+  ],
+  "pressure_psi": [
+   10.2,
+   14.7
+  ],
+  "ventilation_cm_s": [
+   5,
+   20
+  ],
+  "pillar_needs": {
+   "prevention": 0.45,
+   "detection": 0.3,
+   "suppression": 0.25
+  },
+  "considerations": [
+   "Microgravity, small cabin and no rapid return: early detection and prevention dominate.",
+   "Cabin may be lowered to 10.2 psi / 26.5 % O2 before spacewalks, raising flammability.",
+   "Artemis II's smoke alarm showed how disruptive an alarm is far from Earth."
+  ],
+  "sources": [
+   "Challenge statement (Artemis II, spacesuit pre-breathe)",
+   "Researcher's Guide, Spacecraft Fire Safety, p. 34"
+  ]
+ },
+ {
+  "id": "lunar_base",
+  "name": "Moon base",
+  "gravity_g": 0.166,
+  "description": "Surface habitat at an intermediate, oxygen-enriched atmosphere to shorten EVA pre-breathe.",
+  "o2_pct": [
+   30.0,
+   34.0
+  ],
+  "pressure_psi": [
+   8.2,
+   10.2
+  ],
+  "ventilation_cm_s": [
+   5,
+   20
+  ],
+  "pillar_needs": {
+   "prevention": 0.5,
+   "detection": 0.25,
+   "suppression": 0.25
+  },
+  "considerations": [
+   "30 % O2 or more is a 40 %+ increase over Earth air: materials become much more flammable.",
+   "Lunar gravity (1/6 g) adds weak buoyancy; no partial-gravity combustion data exist in PSI yet, so microgravity and 1-g results bound it.",
+   "Upcoming FM2 and LUCI experiments will measure flammability in lunar gravity."
+  ],
+  "sources": [
+   "Challenge statement (30 %+ O2 at <= 10.2 psi)",
+   "NASA FM2 investigation page"
+  ]
+ },
+ {
+  "id": "rover",
+  "name": "Pressurized rover",
+  "gravity_g": 0.166,
+  "description": "Small pressurized lunar vehicle sharing the habitat's oxygen-enriched atmosphere.",
+  "o2_pct": [
+   30.0,
+   34.0
+  ],
+  "pressure_psi": [
+   8.2,
+   10.2
+  ],
+  "ventilation_cm_s": [
+   5,
+   30
+  ],
+  "pillar_needs": {
+   "prevention": 0.3,
+   "detection": 0.35,
+   "suppression": 0.35
+  },
+  "considerations": [
+   "Very small free volume: smoke and heat build up fast, so detection speed and suppression matter most.",
+   "Dense electronics and cabling are likely ignition sources (Apollo 1 wiring arcs).",
+   "Escape means a suited egress onto the lunar surface."
+  ],
+  "sources": [
+   "Challenge statement (rover atmosphere)",
+   "Apollo 1 Lessons Learned (NASA SMA)"
+  ]
+ },
+ {
+  "id": "mars_base",
+  "name": "Mars base",
+  "gravity_g": 0.38,
+  "description": "Long-term Martian surface habitat, months from any resupply.",
+  "o2_pct": [
+   26.5,
+   34.0
+  ],
+  "pressure_psi": [
+   8.2,
+   10.2
+  ],
+  "ventilation_cm_s": [
+   5,
+   20
+  ],
+  "pillar_needs": {
+   "prevention": 0.45,
+   "detection": 0.3,
+   "suppression": 0.25
+  },
+  "considerations": [
+   "Mars gravity (0.38 g) gives more buoyancy than the Moon, but still far less than Earth.",
+   "No resupply for months: suppressant stocks and post-fire cleanup are limited.",
+   "Expected atmosphere is oxygen-enriched and reduced-pressure like a Moon base."
+  ],
+  "sources": [
+   "Challenge statement (partial gravity, bounding microgravity and 1-g data)"
+  ]
+ },
+ {
+  "id": "suit",
+  "name": "Spacesuit / pre-breathe",
+  "gravity_g": 0.0,
+  "description": "Reference case: pure oxygen at low pressure, the most oxygen-rich crew environment.",
+  "o2_pct": [
+   95.0,
+   100.0
+  ],
+  "pressure_psi": [
+   4.0,
+   4.5
+  ],
+  "ventilation_cm_s": [
+   0,
+   10
+  ],
+  "pillar_needs": {
+   "prevention": 0.7,
+   "detection": 0.15,
+   "suppression": 0.15
+  },
+  "considerations": [
+   "100 % O2 at 4.3 psi: Apollo 1 showed how fast fire spreads in pure oxygen.",
+   "Prevention (ignition control and material choice) is the only practical defence.",
+   "PSI tests reach at most ~85 % O2 (inverse flames), so this environment is a data gap."
+  ],
+  "sources": [
+   "Challenge statement (4.3 psi, 100 % O2)",
+   "Apollo 1 Accident Investigation (NASA SMA)"
+  ]
+ }
+]
