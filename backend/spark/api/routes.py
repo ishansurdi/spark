@@ -1,18 +1,18 @@
 """HTTP routes. Each handler is a thin wrapper over spark.core / spark.ai functions."""
 from __future__ import annotations
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Response
 from pydantic import BaseModel, Field
 
 from spark.ai import gemini, service
-from spark.core import ranking, search, store
+from spark.core import export, ranking, search, store
 
 router = APIRouter(prefix="/api")
 
 # Fields sent to the browser for charts (keeps the payload small).
 CHART_FIELDS = ("investigation", "fuel", "fuel_phase", "configuration", "o2_pct", "o2_basis",
                 "pressure_atm", "flow_cm_s", "condition_basis", "outcome")
-LIST_FIELDS = ("id", "short", "group", "kind", "pillars", "relevance", "material_realism", "scale", "fuels")
+LIST_FIELDS = ("id", "short", "group", "kind", "hardware_family", "pillars", "relevance", "material_realism", "scale", "fuels")
 
 
 def require_investigation(acc: str) -> dict:
@@ -74,6 +74,26 @@ def investigation_tests(acc: str) -> list[dict]:
 @router.get("/tests")
 def tests() -> list[dict]:
     return [{k: t[k] for k in CHART_FIELDS if k in t} for t in store.tests()]
+
+
+def csv_download(content: str, filename: str) -> Response:
+    return Response(content, media_type="text/csv; charset=utf-8",
+                    headers={"Content-Disposition": f'attachment; filename="{filename}"'})
+
+
+@router.get("/export/tests.csv")
+def export_all_tests() -> Response:
+    """Every normalized test (all investigations) as one CSV."""
+    return csv_download(export.to_csv(store.tests()), "spark-psi-combustion-tests.csv")
+
+
+@router.get("/export/{acc}.csv")
+def export_investigation_tests(acc: str) -> Response:
+    inv = require_investigation(acc)
+    tests = store.tests_by_investigation().get(inv["id"], [])
+    if not tests:
+        raise HTTPException(404, f"{inv['id']} has no experimental table in PSI")
+    return csv_download(export.to_csv(tests), f"spark-{inv['id']}-{inv['short'].replace(' ', '_')}-tests.csv")
 
 
 @router.get("/rank/{env_id}")

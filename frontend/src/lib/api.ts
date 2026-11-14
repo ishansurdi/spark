@@ -17,7 +17,14 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return response.json() as Promise<T>;
 }
 
-const post = <T>(path: string, body: unknown) => request<T>(path, { method: "POST", body: JSON.stringify(body) });
+/** Direct download links (CSV built by the API, JSON as served). */
+export const downloads = {
+  allTestsCsv: `${BASE}/api/export/tests.csv`,
+  investigationCsv: (id: string) => `${BASE}/api/export/${id}.csv`,
+  investigationJson: (id: string) => `${BASE}/api/investigations/${id}/tests`,
+};
+
+const post =<T>(path: string, body: unknown) => request<T>(path, { method: "POST", body: JSON.stringify(body) });
 
 export interface Overview {
   investigations: number;
