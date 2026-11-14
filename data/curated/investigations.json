@@ -1,0 +1,329 @@
+{
+  "_about": "Hand-curated fire-safety attributes for each PSI combustion investigation. Scores are 0-1. Every key finding cites its source; PSI metadata (objectives, DOI, dates) and test statistics are merged in by backend/spark/pipeline/build.py.",
+  "_sources": {
+    "guide": "NASA, A Researcher's Guide to ISS Combustion Science (NP-2015-10-034-JSC, 2015)",
+    "grc": "NASA Glenn Research Center investigation fact sheets (nasa.gov Combustion Science archive)",
+    "acme": "NASA Glenn, Advanced Combustion via Microgravity Experiments (ACME) overview",
+    "psi": "NASA Physical Sciences Informatics investigation record",
+    "challenge": "NASA Space Apps 2026 challenge statement"
+  },
+  "investigations": [
+    {
+      "id": "PSI-26", "short": "BASS", "group": "Solid materials", "kind": "flight",
+      "fuels": ["SIBAL cotton-fiberglass fabric", "Nomex", "Ultem", "PMMA slabs and spheres", "wax candles"],
+      "sample": "41 samples: thin flat strips 12 cm x 1-2 cm, thick PMMA 5 x 1 cm, PMMA spheres 1-2 cm, candles in 6 mm ceramic tubes",
+      "measurements": ["Video and still imaging", "Radiometer", "Anemometer (duct flow)", "Nitrogen flow (mass flow controller)"],
+      "pillars": {"prevention": 0.9, "detection": 0.1, "suppression": 0.9},
+      "material_realism": 1.0, "scale": 0.45,
+      "relevance": "Real spacecraft materials burned in ventilation-speed airflow, then extinguished with nitrogen: the closest small-scale analogue to a cabin fire and its suppression.",
+      "key_findings": [
+        {"text": "Materials can burn at lower oxygen levels in microgravity than on Earth, so the NASA-STD-6001 Test 1 upward-burning screen is not conservative.", "source": "guide", "page": 31},
+        {"text": "A local nitrogen jet can strengthen a flame: it entrains surrounding air and sustains burning even with the cabin airflow off.", "source": "guide", "page": 31},
+        {"text": "Unlike on Earth, the best point to apply a suppressant to a microgravity flame is not obvious; a poorly aimed stream can feed the flame oxygen.", "source": "grc"}
+      ],
+      "earth_applications": "Validated flame-spread models for building and wildland fire codes."
+    },
+    {
+      "id": "PSI-25", "short": "BASS-II", "group": "Solid materials", "kind": "flight",
+      "fuels": ["PMMA films and sheets", "black and clear PMMA rods", "SIBAL fabric", "Nomex", "PMMA spherical section"],
+      "sample": "~100 samples: flat 10 cm x 1-2 cm, rods 1/4-1/2 inch, large acrylic spherical section",
+      "measurements": ["Video and still imaging", "Radiometer", "O2, CO2 and CO sensors (CSA-CP, CDM)", "Anemometer"],
+      "pillars": {"prevention": 1.0, "detection": 0.3, "suppression": 0.6},
+      "material_realism": 1.0, "scale": 0.45,
+      "relevance": "Measured how low oxygen and airflow can go before common plastics and fabrics stop burning in microgravity: the flammability-limit data needed to pick cabin materials.",
+      "key_findings": [
+        {"text": "Thin- and thick-fuel flame spread rates were measured in microgravity and a formula for the thin-to-thick transition was derived.", "source": "grc"},
+        {"text": "Models predict higher spread rates than observed, so flame-spread models need improvement before they can replace tests.", "source": "grc"},
+        {"text": "Oxygen was lowered below air by nitrogen vitiation (data reach ~14 % O2) to find minimum oxygen and flow limits for burning.", "source": "psi"}
+      ],
+      "earth_applications": "Fire models for wildfires, building fires and waste-to-energy combustion."
+    },
+    {
+      "id": "PSI-98", "short": "Saffire-I", "group": "Large-scale spacecraft fire", "kind": "flight",
+      "fuels": ["SIBAL cotton-fiberglass fabric"],
+      "sample": "0.4 m x 0.94 m fabric sheet in a 0.5 x 1 x 1.3 m flow duct inside a departed Cygnus",
+      "measurements": ["Two video cameras", "Oxygen and pressure sensors", "Thermocouples", "Radiometers"],
+      "pillars": {"prevention": 1.0, "detection": 0.4, "suppression": 0.2},
+      "material_realism": 1.0, "scale": 1.0,
+      "relevance": "The first fire of realistic size in space: shows how fast a large fire grows inside a spacecraft-sized volume.",
+      "key_findings": [
+        {"text": "Before Saffire, the largest fire experiment in space was about the size of an index card.", "source": "grc"},
+        {"text": "Concurrent-flow burn of the large sample lasted ~420 s, while the opposed-flow sample burned ~70 s at the same 20 cm/s airflow.", "source": "psi"}
+      ],
+      "earth_applications": "Fire growth data for confined vehicles such as aircraft cabins and submarines."
+    },
+    {
+      "id": "PSI-99", "short": "Saffire-II", "group": "Large-scale spacecraft fire", "kind": "flight",
+      "fuels": ["Silicone", "SIBAL fabric", "Nomex", "PMMA (spacecraft window acrylic)"],
+      "sample": "9 samples, 5 cm x 29 cm, several thicknesses",
+      "measurements": ["Video cameras", "Oxygen and pressure sensors", "Thermocouples"],
+      "pillars": {"prevention": 1.0, "detection": 0.3, "suppression": 0.2},
+      "material_realism": 1.0, "scale": 0.8,
+      "relevance": "Burned nine real spacecraft materials and compared the burn in microgravity with the same samples in normal gravity: direct evidence for material selection.",
+      "key_findings": [
+        {"text": "The kit expanded beyond fabric to Nomex, silicone and the acrylic used in spacecraft windows.", "source": "grc"},
+        {"text": "The experimental table records both microgravity burn length and 1-g burn length per sample, a direct gravity comparison.", "source": "psi"}
+      ],
+      "earth_applications": "Material flammability rankings for transport interiors."
+    },
+    {
+      "id": "PSI-100", "short": "Saffire-III", "group": "Large-scale spacecraft fire", "kind": "flight",
+      "fuels": ["SIBAL cotton-fiberglass fabric"],
+      "sample": "0.41 m x 0.94 m fabric sheet, concurrent and opposed flow",
+      "measurements": ["Video cameras", "Oxygen and pressure sensors", "Thermocouples"],
+      "pillars": {"prevention": 1.0, "detection": 0.4, "suppression": 0.2},
+      "material_realism": 1.0, "scale": 1.0,
+      "relevance": "Repeated the Saffire-I fabric at a higher 30 cm/s airflow to show how ventilation speed changes large-fire growth.",
+      "key_findings": [
+        {"text": "Same SIBAL fabric as Saffire-I but at a higher flow velocity, isolating the effect of ventilation on fire growth.", "source": "grc"}
+      ],
+      "earth_applications": "Ventilation-driven fire growth in confined spaces."
+    },
+    {
+      "id": "PSI-102", "short": "SAME", "group": "Smoke and detection", "kind": "flight",
+      "fuels": ["Teflon", "Kapton", "silicone rubber", "cellulose", "dibutyl phthalate"],
+      "sample": "30 samples (6 each of 5 materials) heated to produce smoke, not flame",
+      "measurements": ["Ionization smoke detector (Shuttle)", "Photoelectric smoke detector (ISS)", "Particle counters and moment instruments", "Thermal precipitator for electron microscopy"],
+      "pillars": {"prevention": 0.1, "detection": 1.0, "suppression": 0.0},
+      "material_realism": 1.0, "scale": 0.35,
+      "relevance": "Measured what smoke from overheating spacecraft materials actually looks like in microgravity, the signal every smoke detector must catch.",
+      "key_findings": [
+        {"text": "Mean smoke particle diameters were 100-200 nm, yet a large share of the mass is in particles above 1 um (silicone: AMD 227 nm with almost half the mass above 1000 nm).", "source": "grc"},
+        {"text": "Sub-micron smoke is better detected by ionization detectors, though light-scattering detectors would work for most cases.", "source": "grc"},
+        {"text": "Detectors should target pre-fire overheating (pyrolysis) products, not soot, because spacecraft cannot tolerate established flaming fires.", "source": "grc"}
+      ],
+      "earth_applications": "Smoke detection for submarines and underwater habitats."
+    },
+    {
+      "id": "PSI-101", "short": "SAME-R", "group": "Smoke and detection", "kind": "flight",
+      "fuels": ["Teflon", "Kapton", "cotton", "silicone rubber", "Pyrell fire-retardant foam"],
+      "sample": "Heated material samples on a wick/heater, with smoke aged in a chamber",
+      "measurements": ["ISS and Shuttle smoke detectors", "Aerosol moment instruments", "Thermal precipitator (TEM)", "Ground SMPS comparison"],
+      "pillars": {"prevention": 0.1, "detection": 1.0, "suppression": 0.0},
+      "material_realism": 1.0, "scale": 0.35,
+      "relevance": "Re-flight that tested whether existing spacecraft smoke detectors see the smoke that real cabin materials make in microgravity.",
+      "key_findings": [
+        {"text": "ISS smoke detectors use near-IR forward scattering and are most sensitive to particles above 1 um, outside the Shuttle detector's range.", "source": "grc"},
+        {"text": "Skylab's ~30 UV fire detectors were line-of-sight only and suffered false alarms.", "source": "grc"},
+        {"text": "Six component failures by overheating occurred in the Shuttle fleet; none became a fire, but longer missions raise the odds.", "source": "grc"}
+      ],
+      "earth_applications": "Detector designs that reject nuisance alarms."
+    },
+    {
+      "id": "PSI-47", "short": "DAFT", "group": "Smoke and detection", "kind": "flight",
+      "fuels": ["Arizona road dust (test aerosol)"],
+      "sample": "Ambient ISS air and a dust aerosol; no combustion",
+      "measurements": ["Modified TSI P-Trak ultrafine particle counter", "DustTrak"],
+      "pillars": {"prevention": 0.0, "detection": 0.8, "suppression": 0.0},
+      "material_realism": 0.5, "scale": 0.2,
+      "relevance": "Characterized normal ISS dust so detectors can tell harmless dust from smoke, and proved the particle counter used later in SAME.",
+      "key_findings": [
+        {"text": "ISS particulate levels were low compared with the Shuttle, and average particle sizes were larger on orbit than on Earth.", "source": "grc"},
+        {"text": "Knowing background dust levels helps design detectors that distinguish dust from smoke (fewer false alarms).", "source": "grc"}
+      ],
+      "earth_applications": "Dust-versus-smoke discrimination, as in NASA's incipient fire detector used in mining."
+    },
+    {
+      "id": "PSI-69", "short": "FLEX", "group": "Liquid droplets", "kind": "flight",
+      "fuels": ["Methanol", "n-Heptane"],
+      "sample": "Free or fiber-supported droplets 2-5 mm in a quiescent chamber",
+      "measurements": ["Droplet and flame imaging (visible/UV)", "Radiometers", "Chamber gas composition and pressure"],
+      "pillars": {"prevention": 0.6, "detection": 0.0, "suppression": 1.0},
+      "material_realism": 0.4, "scale": 0.2,
+      "relevance": "Quantified how much CO2 or helium it takes to put out a fire in microgravity: the basis for gaseous suppression in spacecraft.",
+      "key_findings": [
+        {"text": "The limiting oxygen index is lower in reduced gravity than on Earth, so terrestrial inert-gas suppressant standards do not offer the same margin of safety in space.", "source": "guide", "page": 12},
+        {"text": "Large heptane droplets kept burning as an invisible low-temperature 'cool flame' after the visible flame went out, a discovery first doubted by peers.", "source": "guide", "page": 33},
+        {"text": "Suppressants studied were CO2 and helium, at reduced pressure too, because venting a cabin is one way to fight fire.", "source": "grc"}
+      ],
+      "earth_applications": "Validated chemistry models for liquid fuels used in engines; suppressant design."
+    },
+    {
+      "id": "PSI-68", "short": "FLEX-2", "group": "Liquid droplets", "kind": "flight",
+      "fuels": ["n-Heptane", "n-Octane", "iso-Octane", "n-Decane", "binary mixtures and surrogate fuels"],
+      "sample": "Single droplets and droplet pairs, 1.5-5 mm, some in slow forced flow",
+      "measurements": ["Droplet and flame imaging", "Soot imaging", "Radiometers"],
+      "pillars": {"prevention": 0.5, "detection": 0.1, "suppression": 0.4},
+      "material_realism": 0.4, "scale": 0.2,
+      "relevance": "Extended FLEX to practical fuels, slow airflow and interacting droplets, closer to a real spill or spray fire.",
+      "key_findings": [
+        {"text": "Studied sooting, sub-buoyant convective flow and droplet-droplet interactions with pure, mixed and surrogate fuels.", "source": "guide", "page": 13},
+        {"text": "Sooting propensity changes with the inert diluent at the same oxygen level.", "source": "guide", "page": 12}
+      ],
+      "earth_applications": "Fuel spray models for engines and biofuels."
+    },
+    {
+      "id": "PSI-39", "short": "CFI", "group": "Liquid droplets", "kind": "flight",
+      "fuels": ["n-Dodecane", "n-dodecane/iso-dodecane mixtures"],
+      "sample": "Free and fiber-supported droplets",
+      "measurements": ["Droplet and flame imaging", "Radiometers"],
+      "pillars": {"prevention": 0.4, "detection": 0.1, "suppression": 0.2},
+      "material_realism": 0.4, "scale": 0.2,
+      "relevance": "Maps when low-temperature cool flames appear across 0.5-5 atm, a burning mode that conventional detectors and suppression logic do not expect.",
+      "key_findings": [
+        {"text": "Examined cool-flame burning of dodecane droplets at pressures from 0.25 to 5 atm.", "source": "psi"}
+      ],
+      "earth_applications": "Cool-flame chemistry for cleaner, more efficient engines."
+    },
+    {
+      "id": "PSI-159", "short": "CFI-G", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Ethane", "Propane", "n-Butane", "n-Pentane"],
+      "sample": "Porous spherical burner; normal flames (fuel out) and inverse flames (oxygen out)",
+      "measurements": ["Color and UV imaging", "Radiometers", "Thin-filament pyrometry", "Burner thermocouple"],
+      "pillars": {"prevention": 0.6, "detection": 0.1, "suppression": 0.2},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Contains the highest oxygen concentrations tested in microgravity (up to 85 % O2 in inverse flames), the closest data to oxygen-enriched lunar habitats and EVA prep.",
+      "key_findings": [
+        {"text": "Inverse flames issued oxygen-nitrogen mixtures of up to 85 % O2 into a fuel-laden chamber: the highest-oxygen microgravity combustion tests in PSI.", "source": "challenge"},
+        {"text": "Cool diffusion flames were observed as steady spherical flames for the first time.", "source": "acme"}
+      ],
+      "earth_applications": "Cool-flame kinetics for engine design."
+    },
+    {
+      "id": "PSI-10", "short": "Flame Design", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Ethylene", "Methane"],
+      "sample": "Porous spherical burner, normal and inverse flames, oxygen-enriched atmospheres",
+      "measurements": ["Color imaging", "Soot extinction imaging", "Pyrometry", "Radiometers"],
+      "pillars": {"prevention": 0.5, "detection": 0.3, "suppression": 0.2},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Mapped when flames start to make soot in oxygen-enriched air up to 85 % O2; soot drives flame radiation and smoke.",
+      "key_findings": [
+        {"text": "Tests whether the stoichiometric mixture fraction can characterize soot and flammability limits of non-premixed flames, as equivalence ratio does for premixed flames.", "source": "acme"}
+      ],
+      "earth_applications": "Cleaner, soot-free burner design."
+    },
+    {
+      "id": "PSI-20", "short": "ACME BRE", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Ethylene", "Ethylene-nitrogen", "Methane (emulating solid and liquid fuels)"],
+      "sample": "Flat porous burner (25-50 mm) whose fuel flow mimics a burning solid's vaporization",
+      "measurements": ["Heat-flux gauges", "Burner surface thermocouples", "Radiometers", "Imaging"],
+      "pillars": {"prevention": 1.0, "detection": 0.1, "suppression": 0.2},
+      "material_realism": 0.6, "scale": 0.3,
+      "relevance": "Purpose-built for spacecraft fire prevention: emulates burning materials at 21-40 % O2 in still air to judge flammability tests for low and partial gravity.",
+      "key_findings": [
+        {"text": "Unlike the other ACME experiments, BRE targets fire prevention: it assesses existing flammability tests for low- and partial-gravity environments.", "source": "acme"},
+        {"text": "Flames were ignited at oxygen levels of 21, 25, 26.5, 34 and 40 %, spanning air to lunar-habitat-like enrichment.", "source": "psi"}
+      ],
+      "earth_applications": "Material property-based fire hazard ranking."
+    },
+    {
+      "id": "PSI-21", "short": "CLD Flame", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Methane", "Ethylene", "nitrogen-diluted mixtures"],
+      "sample": "Coflow burner, fuel dilution varied from pure (sooty) to near-extinction",
+      "measurements": ["Color imaging", "Soot volume fraction", "Pyrometry"],
+      "pillars": {"prevention": 0.3, "detection": 0.4, "suppression": 0.2},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Shows that microgravity flames are far sootier than on Earth, which changes radiation and the smoke a detector sees.",
+      "key_findings": [
+        {"text": "Microgravity sooty flames are taller, wider, cooler and contain 5-8 times more soot than equivalent normal-gravity flames.", "source": "acme"},
+        {"text": "Highly diluted weak flames are more stable in microgravity, so flames survive at lower fuel concentrations than on Earth.", "source": "acme"}
+      ],
+      "earth_applications": "Soot models for engines and climate studies."
+    },
+    {
+      "id": "PSI-22", "short": "E-FIELD Flames", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Methane", "nitrogen-diluted methane"],
+      "sample": "Coflow or gas-jet flame with a high-voltage mesh (up to +/-10 kV) downstream",
+      "measurements": ["Ion current", "Imaging", "Flame response time"],
+      "pillars": {"prevention": 0.3, "detection": 0.1, "suppression": 0.3},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Electric fields push on flame ions to create an 'ion wind', a way to mimic partial-gravity buoyancy without leaving the ISS.",
+      "key_findings": [
+        {"text": "Partial gravity was mimicked through the electric field's effect on the ions that naturally occur in flames.", "source": "challenge"},
+        {"text": "Electric fields can modify flame shape, alter soot or flammability limits and direct heat transfer.", "source": "acme"}
+      ],
+      "earth_applications": "Electric flame control for low-emission combustion."
+    },
+    {
+      "id": "PSI-23", "short": "s-Flame", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Hydrogen", "Methane", "Ethylene", "inert diluents"],
+      "sample": "Porous spherical burner, flames left to extinguish naturally",
+      "measurements": ["Imaging", "Far-field thermocouples", "Radiometers"],
+      "pillars": {"prevention": 0.4, "detection": 0.1, "suppression": 0.3},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Pins down both radiative and convective extinction limits, the physics behind when a fire goes out on its own.",
+      "key_findings": [
+        {"text": "Aims to identify extinction limits for both radiative and convective extinction and the onset of pulsating instabilities.", "source": "guide", "page": 18}
+      ],
+      "earth_applications": "Validated flame models."
+    },
+    {
+      "id": "PSI-107", "short": "SPICE", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Ethylene", "Propylene", "Propane", "Methane", "fuel mixtures"],
+      "sample": "Gas-jet flames from 3 nozzles in a fan-driven duct",
+      "measurements": ["Color imaging (Nikon)", "Anemometer", "Fuel mass flow"],
+      "pillars": {"prevention": 0.5, "detection": 0.5, "suppression": 0.1},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Soot controls how much heat a fire radiates and how much smoke it makes; SPICE measured when microgravity flames start to smoke.",
+      "key_findings": [
+        {"text": "Over 70 smoke points were identified, giving soot-forming conditions and flame sizes in microgravity.", "source": "grc"},
+        {"text": "Soot dominates the heat emitted by flames in normal and microgravity fires; controlling it matters for fire spread.", "source": "grc"},
+        {"text": "Results let heat-release data from the NASA cone calorimeter be extended to microgravity for performance-based material selection.", "source": "grc"}
+      ],
+      "earth_applications": "Smoke-point data used in terrestrial fire modeling."
+    },
+    {
+      "id": "PSI-106", "short": "SLICE", "group": "Gaseous flames", "kind": "flight",
+      "fuels": ["Methane", "Ethylene", "nitrogen-diluted mixtures"],
+      "sample": "Coflow jet flames in the SPICE duct, air speed raised until liftoff",
+      "measurements": ["Still and video imaging", "Flow and temperature sensors"],
+      "pillars": {"prevention": 0.3, "detection": 0.1, "suppression": 0.2},
+      "material_realism": 0.3, "scale": 0.3,
+      "relevance": "Flame attachment to a surface controls whether a fire stays anchored, relevant to how airflow can blow out or relocate a flame.",
+      "key_findings": [
+        {"text": "Flame attachment to (or detachment from) a burner or condensed-fuel surface is essential to fire safety; the attachment point controls stability of the whole flame.", "source": "grc"}
+      ],
+      "earth_applications": "Burner stability and emissions."
+    },
+    {
+      "id": "PSI-60", "short": "SPICE analysis", "group": "Modeling (ground)", "kind": "ground",
+      "fuels": ["SPICE flight data"], "sample": "Re-analysis of SPICE images with color-ratio pyrometry",
+      "measurements": ["Image processing", "Detailed soot modeling"],
+      "pillars": {"prevention": 0.4, "detection": 0.4, "suppression": 0.1},
+      "material_realism": 0.3, "scale": 0.2,
+      "relevance": "Explains why soot differs so much between 1 g and 0 g flames, supporting fire detection and suppression models.",
+      "key_findings": [{"text": "Combined flight imaging and detailed soot models to explain the 1-g vs 0-g soot discrepancy.", "source": "psi"}],
+      "earth_applications": "Soot prediction tools."
+    },
+    {
+      "id": "PSI-62", "short": "Flame-spread FGM model", "group": "Modeling (ground)", "kind": "ground",
+      "fuels": ["BASS / BASS-II flight data"], "sample": "Computational model validated with two-color tomography",
+      "measurements": ["CFD with flamelet-generated manifolds"],
+      "pillars": {"prevention": 0.7, "detection": 0.1, "suppression": 0.3},
+      "material_realism": 0.6, "scale": 0.2,
+      "relevance": "A predictive model of flame spread over solids in microgravity, built and checked against BASS data.",
+      "key_findings": [{"text": "Developed and validated flamelet-generated-manifold models for concurrent flame spread, one of the hardest cases to model.", "source": "psi"}],
+      "earth_applications": "Faster fire-spread simulation."
+    },
+    {
+      "id": "PSI-115", "short": "SAME smoke model", "group": "Modeling (ground)", "kind": "ground",
+      "fuels": ["SAME flight data (dibutyl phthalate)"], "sample": "Direct numerical simulation of smoke particle growth",
+      "measurements": ["Navier-Stokes DNS"],
+      "pillars": {"prevention": 0.1, "detection": 0.8, "suppression": 0.0},
+      "material_realism": 0.6, "scale": 0.2,
+      "relevance": "Simulates how gravity changes smoke particle growth, so detector designs can be tested virtually.",
+      "key_findings": [{"text": "Simulated smoke particle formation and growth in Earth gravity and microgravity from SAME conditions.", "source": "psi"}],
+      "earth_applications": "Smoke transport modeling."
+    },
+    {
+      "id": "PSI-117", "short": "Cool-flame CFD", "group": "Modeling (ground)", "kind": "ground",
+      "fuels": ["FLEX flight data (n-alkanes)"], "sample": "3-D OpenFOAM model of droplet cool flames",
+      "measurements": ["CFD with low-temperature chemistry"],
+      "pillars": {"prevention": 0.4, "detection": 0.1, "suppression": 0.3},
+      "material_realism": 0.3, "scale": 0.2,
+      "relevance": "Shows how small thermal and airflow disturbances change cool-flame behavior, using FLEX flight data.",
+      "key_findings": [{"text": "Quantified how imposed thermal and convective perturbations affect droplet cool-flame dynamics.", "source": "psi"}],
+      "earth_applications": "Engine combustion modeling."
+    },
+    {
+      "id": "PSI-142", "short": "Cool-flame extinction", "group": "Modeling (ground)", "kind": "ground",
+      "fuels": ["FLEX flight data", "counterflow flames"], "sample": "Counterflow flame experiments and three kinetic models",
+      "measurements": ["Counterflow burner", "Numerical kinetics"],
+      "pillars": {"prevention": 0.4, "detection": 0.0, "suppression": 0.3},
+      "material_realism": 0.3, "scale": 0.2,
+      "relevance": "Explains how oxygen level sets the extinction limits of cool flames observed in FLEX.",
+      "key_findings": [{"text": "Compared oxygen-concentration effects on cool-flame extinction limits with three numerical models using FLEX conditions.", "source": "psi"}],
+      "earth_applications": "Low-temperature combustion chemistry."
+    }
+  ]
+}
