@@ -2,10 +2,11 @@ import type { Pillar, Range } from "./types";
 
 export const PILLARS: Pillar[] = ["prevention", "detection", "suppression"];
 
+/** Pillar tags: outlined labels (text stays ink, the left rule carries the identity). */
 export const PILLAR_STYLE: Record<Pillar, string> = {
-  prevention: "bg-amber-500/15 text-amber-300 ring-amber-500/30",
-  detection: "bg-sky-500/15 text-sky-300 ring-sky-500/30",
-  suppression: "bg-emerald-500/15 text-emerald-300 ring-emerald-500/30",
+  prevention: "border-l-[3px] border-[#eb6834] bg-paper-2 text-ink",
+  detection: "border-l-[3px] border-[#2a78d6] bg-paper-2 text-ink",
+  suppression: "border-l-[3px] border-[#1baf7a] bg-paper-2 text-ink",
 };
 
 export function formatRange(range: Range, unit = "", digits = 1): string {

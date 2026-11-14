@@ -47,6 +47,8 @@ export interface InvestigationSummary {
   fuels: string[];
   stats: Stats;
   summary?: string | null;
+  start?: string | null;
+  end?: string | null;
 }
 
 export interface Publication {
