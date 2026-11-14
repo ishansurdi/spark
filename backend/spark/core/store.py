@@ -40,6 +40,11 @@ def environments() -> dict[str, Environment]:
     return {env["id"]: Environment(**env) for env in _load("environments")}
 
 
+@lru_cache
+def insights() -> dict:
+    return _load("insights")
+
+
 def get_investigation(acc: str) -> dict | None:
     return investigations_by_id().get(acc.upper())
 

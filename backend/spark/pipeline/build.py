@@ -111,6 +111,8 @@ def build() -> None:
     write_json(PROCESSED / "tests.json", [t.model_dump(exclude_none=True, exclude_defaults=False) for t in tests])
     write_json(PROCESSED / "investigations.json", investigations)
     write_json(PROCESSED / "environments.json", load_curated("environments", "environments"))
+    insights = json.loads((CURATED / "insights.json").read_text(encoding="utf-8"))
+    write_json(PROCESSED / "insights.json", {k: v for k, v in insights.items() if not k.startswith("_")})
     print(f"{len(tests)} tests, {len(investigations)} investigations -> {PROCESSED}")
 
 
