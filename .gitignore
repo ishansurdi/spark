@@ -1,0 +1,9 @@
+.env
+.env.*
+*.env
+__pycache__/
+node_modules/
+data/raw/psi/docs/
+data/raw/psi/files_index.json
+data/raw/psi/docs_download.log
+scripts/
