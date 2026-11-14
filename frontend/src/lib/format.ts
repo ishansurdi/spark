@@ -35,3 +35,8 @@ export function colorFor(id: string, ids: string[]): string {
 }
 
 export const PSI_PER_ATM = 14.6959;
+
+/** Remove inline citation tags such as "[PSI-69, PSI-69 p.3]" for compact card text. */
+export function stripCitations(text: string): string {
+  return text.replace(/\s*\[PSI-[^\]]*\]/g, "").trim();
+}

@@ -1,0 +1,146 @@
+{
+ "PSI-26": {
+  "plain_summary": "The BASS investigation tested how various solid materials burn and are extinguished in microgravity using nitrogen gas jets [PSI-26]. It discovered that fires in space can burn at lower oxygen levels than on Earth and may actually intensify if a suppressant is applied incorrectly [PSI-26].",
+  "fire_safety_takeaway": "Standard Earth-based flammability tests are not conservative for spaceflight because materials burn more easily in microgravity, and suppression efforts must be precisely aimed to avoid entraining oxygen into the flame [PSI-26].",
+  "modeling_use": "BASS provides data on flame growth rates, luminosity, and extinction limits for complex geometries like spheres and wake flames to improve computational models for spacecraft fire detection and suppression [PSI-26 p.1, p.6].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-25": {
+  "plain_summary": "The BASS-II investigation studied how various solid materials, including plastics and fabrics, burn and extinguish in microgravity using the Microgravity Science Glovebox [PSI-25]. Researchers conducted 129 tests to measure flame spread rates and determine the minimum oxygen and airflow levels required for combustion to continue [PSI-25].",
+  "fire_safety_takeaway": "The study tests the hypothesis that materials in microgravity with adequate ventilation can burn as well as, or better than, they do in normal gravity, necessitating precise oxygen and flow limits for spacecraft safety [PSI-25 p.11, PSI-25].",
+  "modeling_use": "Data from BASS-II revealed that current models like the Fire Dynamic Simulator (FDS) predict higher flame spread rates than observed, highlighting a need to improve chemical kinetics and material properties for accurate fire predictions [PSI-25 p.63].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-98": {
+  "plain_summary": "Saffire-I was the first experiment to study a large-scale fire in space, using a fabric sheet much larger than previous index-card-sized tests [PSI-98]. The study found that a fire's duration depends heavily on airflow direction, with concurrent-flow fires lasting about 420 seconds compared to 70 seconds for opposed-flow fires [PSI-98].",
+  "fire_safety_takeaway": "The experiment demonstrates that large-scale fires in microgravity grow at rates that may not be accurately predicted by standard terrestrial flammability screening tests [PSI-98].",
+  "modeling_use": "The data provides growth rates and flammability limits for large fabric samples to help validate predictive models for spacecraft fire behavior in low-gravity environments [PSI-98].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-99": {
+  "plain_summary": "Saffire-II tested how nine different spacecraft materials, including window acrylic and Nomex, burn inside a cargo ship in space [PSI-99]. Researchers compared these space fires to Earth-based tests to see how gravity changes how far and fast materials burn [PSI-99].",
+  "fire_safety_takeaway": "This experiment provides direct evidence for material selection by comparing microgravity flammability limits to standard NASA terrestrial screening tests [PSI-99].",
+  "modeling_use": "The data on burn lengths and growth rates for various materials like PMMA and silicone can be used to validate models predicting fire behavior in low-gravity environments [PSI-99].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-100": {
+  "plain_summary": "Saffire-III burned a large fabric sheet in microgravity to determine how increased ventilation speed influences the growth of a large-scale fire [PSI-100]. By using a 30 cm/s airflow, it isolated the effect of ventilation on fire behavior compared to previous lower-flow experiments [PSI-100].",
+  "fire_safety_takeaway": "The experiment addresses the risk that terrestrial fire standards may not accurately predict material flammability in spacecraft, which is essential for designing safety systems for future exploration vehicles [PSI-100 p.5].",
+  "modeling_use": "Data from these large-scale planar surface fires is used to quantify fire growth and validate computational models of realistic spacecraft fire scenarios [PSI-100 p.5].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-102": {
+  "plain_summary": "Researchers heated five common spacecraft materials in microgravity to measure the size and characteristics of smoke particles produced during overheating [PSI-102]. The study found that while most particles are tiny (100-200 nm), a significant portion of the smoke's mass consists of larger particles over 1 micrometer, which differs from smoke behavior on Earth [PSI-102, PSI-102 p.44].",
+  "fire_safety_takeaway": "Smoke detectors for spacecraft should be optimized to detect the specific particle sizes of pre-fire pyrolysis (overheating) rather than flaming soot, as crewed habitats cannot tolerate established fires [PSI-102].",
+  "modeling_use": "The data provides material-specific particle size statistics and count mean diameters (CMD) to improve the accuracy of smoke transport and detector response simulations in microgravity [PSI-102, PSI-102 p.58].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-101": {
+  "plain_summary": "The SAME-R experiment measured smoke particle sizes from common spacecraft materials like Teflon and Kapton to improve fire detection reliability. By using a moment-based measurement method, researchers successfully characterized smoke aerosols produced under various airflow and heating conditions in microgravity.",
+  "fire_safety_takeaway": "Current ISS smoke detectors are optimized for particles larger than 1 µm, meaning detection systems must be specifically designed to catch the early-stage smoldering and pyrolysis products identified in this study.",
+  "modeling_use": "The validated moment method and lognormal distribution assumptions provide a standardized framework for modeling smoke aerosol behavior in future spacecraft fire detection systems.",
+  "model": "gemini-3.1-flash-lite"
+ },
+ "PSI-47": {
+  "plain_summary": "DAFT tested a particle counter on the ISS to see if it could work without gravity and measured the size of floating dust [PSI-47, PSI-47 p.2]. Researchers found that ISS dust particles are larger than those on Earth, which helps engineers design smoke detectors that do not trigger false alarms from background dust [PSI-47].",
+  "fire_safety_takeaway": "Characterizing background ISS dust levels and particle sizes allows for the design of detectors that can distinguish between harmless dust and actual smoke, reducing false alarms [PSI-47].",
+  "modeling_use": "The experiment established correlation curves for dust aerosols in microgravity and validated the internal flow dynamics of the P-Trak for future smoke measurement experiments [PSI-47 p.2, PSI-47 p.3].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-69": {
+  "plain_summary": "This experiment tested how liquid fuel droplets burn and are extinguished in microgravity using suppressants like carbon dioxide and helium [PSI-69]. It revealed that fuels like heptane can continue burning as invisible, low-temperature 'cool flames' even after the visible flame disappears [PSI-69].",
+  "fire_safety_takeaway": "Standard Earth-based fire suppression levels are insufficient for space because the limiting oxygen index is lower in microgravity, requiring higher concentrations of suppressants like CO2 to destabilize flames [PSI-69, PSI-69 p.3].",
+  "modeling_use": "The study provides critical data on gas-phase radiation and the effectiveness of CO2 versus helium to improve predictive models of flame extinction and flammability limits in microgravity [PSI-69 p.3].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-68": {
+  "plain_summary": "This study examined how single and paired liquid fuel droplets burn and extinguish in microgravity using fuels like heptane and octane [PSI-68]. Researchers observed how soot formation and flame behavior change when droplets interact or are exposed to slow air movement [PSI-68].",
+  "fire_safety_takeaway": "Data on droplet-droplet interactions and sooting propensity in microgravity provides a better understanding of how liquid fuel spills or sprays might behave during a fire in a spacecraft [PSI-68].",
+  "modeling_use": "The investigation provides benchmark experimental data on flame dimensions and bi-component droplet combustion to validate numerical simulations and theoretical models [PSI-68, PSI-68 p.12].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-39": {
+  "plain_summary": "The CFI investigation studied how liquid fuel droplets can maintain low-temperature 'cool flames' in microgravity after a hot flame extinguishes. Researchers mapped these flames using n-dodecane fuels at various pressures to understand combustion that occurs without the bright light or high heat of a typical fire [PSI-39, PSI-39 p.3].",
+  "fire_safety_takeaway": "Cool flames represent a persistent burning mode that conventional spacecraft fire detectors and suppression logic are not currently designed to expect or identify [PSI-39].",
+  "modeling_use": "The microgravity environment provides spherically symmetric data that allows for the validation of complex chemical kinetic mechanisms involving thousands of reactions, particularly within the Negative Temperature Coefficient (NTC) region [PSI-39 p.6].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-159": {
+  "plain_summary": "Researchers used the International Space Station to study \"cool flames\" that burn at approximately 600 degrees Celsius, which is less than half the temperature of a typical candle [PSI-159 p.75, PSI-159 p.77]. These experiments achieved the first steady spherical cool diffusion flames by burning gaseous fuels like ethane and butane in microgravity [PSI-159].",
+  "fire_safety_takeaway": "This research supports spacecraft fire prevention by investigating how low-temperature chemical reactions contribute to material flammability and ignition risks [PSI-159 p.71, PSI-159 p.74].",
+  "modeling_use": "The investigation provides experimental data on flame chemistry and high-oxygen combustion (up to 85% O2) to refine computer models that currently neglect cool flame behavior [PSI-159, PSI-159 p.75].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-10": {
+  "plain_summary": "This investigation uses spherical gaseous flames in microgravity to study how soot is produced and controlled in oxygen-enriched environments [PSI-10 p.78]. Researchers tested various fuel and oxygen concentrations to determine if specific mixture fractions can predict soot formation and flammability limits [PSI-10].",
+  "fire_safety_takeaway": "Controlling soot is vital for spacecraft safety because it affects combustion efficiency, emissions, and the operational lifetime of life-support equipment [PSI-10 p.78, p.80].",
+  "modeling_use": "The experiment provides data on soot extinction and flammability limits across varying pressures and oxygen levels to help characterize non-premixed flames in predictive models [PSI-10].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-20": {
+  "plain_summary": "The BRE experiment uses a gas-fed porous burner to simulate the vaporization and burning behavior of solid and liquid fuels in microgravity [PSI-20 p.1]. Researchers tested various oxygen concentrations, ranging from 21% to 40%, to represent conditions in spacecraft and future lunar habitats [PSI-20].",
+  "fire_safety_takeaway": "This study assesses the validity of standard flammability tests for low-gravity environments to improve fire prevention, though lunar and Martian fire risks must currently be bounded by microgravity and 1-g data [PSI-20], [PSI-20 p.1].",
+  "modeling_use": "Measurements of thermal feedback and extinction limits provide a basis for models to predict the sustained combustion of materials in varying atmospheric compositions [PSI-20 p.1].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-21": {
+  "plain_summary": "Microgravity flames are taller, wider, cooler, and produce 5-8 times more soot than equivalent flames on Earth [PSI-21]. These flames are also more stable, meaning they can stay lit at lower fuel concentrations than normal-gravity flames [PSI-21].",
+  "fire_safety_takeaway": "The increased soot production and flame stability in microgravity alter radiation and smoke detection signatures, while allowing fires to persist in diluted environments that would extinguish on Earth [PSI-21].",
+  "modeling_use": "The investigation provides experimental data to test the accuracy of computational models for weak and sooty diffusion flames at the extremes of fuel dilution [PSI-21].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-22": {
+  "plain_summary": "This experiment uses high-voltage electric fields to manipulate ions naturally found in methane flames on the International Space Station [PSI-22 p.1]. This creates an 'ion-driven wind' that can change a flame's shape, stability, and soot production without the interference of Earth's gravity [PSI-22 p.43].",
+  "fire_safety_takeaway": "Electric fields can be used to modify flammability limits and direct heat transfer, suggesting a potential method for active fire control or suppression in spacecraft [PSI-22].",
+  "modeling_use": "The data set provides unique voltage-current (V-I) curves and chemi-ion behavior measurements to validate models of the feedback between ion-driven winds and flame burning behavior [PSI-22 p.1].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-23": {
+  "plain_summary": "This investigation uses a spherical burner on the International Space Station to study how gas flames like hydrogen and methane behave and eventually extinguish in microgravity [PSI-23]. Researchers aim to identify the specific conditions, such as oxygen levels and heat loss, that cause a fire to become unstable or go out on its own [PSI-23 p.1].",
+  "fire_safety_takeaway": "Defining radiative and convective extinction limits is critical for predicting whether a fire in a spacecraft environment will naturally self-extinguish or continue to burn [PSI-23].",
+  "modeling_use": "The experiment provides transient temperature and species data to validate computational models of chemical kinetics and transport properties for both soot-free and sooty flames [PSI-23].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-107": {
+  "plain_summary": "The SPICE experiment studied how different fuels burn in microgravity by identifying the specific conditions where flames begin to produce soot. Researchers used the Microgravity Science Glovebox on the ISS to measure over 70 smoke points for various gas-jet flames.",
+  "fire_safety_takeaway": "Because soot dominates heat radiation in spacecraft fires, understanding these smoke points is critical for predicting fire spread and managing combustion hazards in microgravity.",
+  "modeling_use": "These results allow engineers to extend ground-based cone calorimeter heat-release data to microgravity environments, improving performance-based material selection for spacecraft.",
+  "model": "gemini-3.1-flash-lite"
+ },
+ "PSI-106": {
+  "plain_summary": "This experiment investigated how gas flames stay attached to a burner or lift off when air speed increases in microgravity [PSI-106]. Researchers used methane and ethylene to identify the specific conditions and stabilizing mechanisms at the base of a flame [PSI-106].",
+  "fire_safety_takeaway": "Flame attachment to a surface is essential to fire safety because the attachment point controls whether a fire remains anchored or can be relocated or extinguished by airflow [PSI-106].",
+  "modeling_use": "The investigation provides liftoff velocity limits and structural data to help models predict the stability and detachment points of laminar diffusion flames in microgravity [PSI-106].",
+  "model": "gemini-3-flash-preview"
+ },
+ "PSI-60": {
+  "plain_summary": "This study analyzed images from the Smoke Point in Coflow Experiment (SPICE) to understand why soot behaves differently in space compared to Earth. By using advanced color-ratio pyrometry and computer modeling, researchers successfully identified the factors causing the large discrepancy in soot formation between 1-g and 0-g environments [PSI-60].",
+  "fire_safety_takeaway": "Understanding these soot formation differences is critical for developing accurate fire detection and suppression systems for crewed spacecraft [PSI-60].",
+  "modeling_use": "The integration of flight imaging data with detailed soot models provides a validated foundation for improving the predictive accuracy of fire safety simulations in microgravity [PSI-60].",
+  "model": "gemini-3.1-flash-lite"
+ },
+ "PSI-62": {
+  "plain_summary": "Researchers developed a new computer model to predict how flames spread across solid materials in microgravity. This model was successfully validated using data and two-color tomography images from the BASS and BASS-II space experiments [PSI-62].",
+  "fire_safety_takeaway": "This model improves our ability to predict the behavior of concurrent flame spread, which is one of the most complex and dangerous fire scenarios in a crewed spacecraft environment [PSI-62].",
+  "modeling_use": "The validated flamelet-generated-manifold (FGM) approach provides a robust computational tool for simulating intricate heat transfer and chemical kinetics during microgravity fire events [PSI-62].",
+  "model": "gemini-3.1-flash-lite"
+ },
+ "PSI-115": {
+  "plain_summary": "This investigation uses computer simulations to compare how smoke particles form and grow in Earth's gravity versus microgravity. By analyzing data from the Smoke Aerosol Measurement Experiment (SAME), researchers aim to understand the fluid dynamic mechanisms that drive these differences.",
+  "fire_safety_takeaway": "Understanding how reduced buoyancy in microgravity alters smoke particle growth is essential for designing effective, reliable smoke detection systems for crewed spacecraft.",
+  "modeling_use": "The simulation data provides a virtual testing environment to quantify gravity-dependent smoke behavior, which can be used to validate and improve predictive fire safety models.",
+  "model": "gemini-3.1-flash-lite"
+ },
+ "PSI-117": {
+  "plain_summary": "This study used 3-D OpenFOAM modeling and FLEX flight data to analyze how external heat and airflow disturbances impact the stability of droplet cool flames. The research quantified how these perturbations influence the dynamics and ultimate fate of established cool flames for both small and large droplets [PSI-117].",
+  "fire_safety_takeaway": "Understanding how thermal and convective perturbations affect cool-flame stability is critical for predicting the behavior and extinction of unintended fuel droplet fires in microgravity environments [PSI-117].",
+  "modeling_use": "The 3-D OpenFOAM model provides a framework to isolate the roles of deliberate heating and drift-induced convection, helping to explain run-to-run variability observed in experimental flight data [PSI-117].",
+  "model": "gemini-3.1-flash-lite"
+ },
+ "PSI-142": {
+  "plain_summary": "This study uses data from the FLEX spaceflight experiments to understand how oxygen levels and radiation determine when low-temperature 'cool flames' extinguish [PSI-142]. Researchers developed a new flammability diagram to map how these flames behave under different airflow and environmental conditions [PSI-142].",
+  "fire_safety_takeaway": "Cool flames represent a unique fire hazard because they can persist at lower temperatures and different oxygen levels than traditional hot flames, requiring specific extinction limit data for spacecraft safety [PSI-142].",
+  "modeling_use": "The study compares three numerical kinetic models against flight data to bridge the knowledge gap between flammability limits and extinction limits in diffusional cool flames [PSI-142].",
+  "model": "gemini-3-flash-preview"
+ }
+}

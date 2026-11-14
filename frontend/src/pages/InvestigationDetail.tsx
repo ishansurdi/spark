@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Card, ErrorBox, InvestigationLink, Loading, PageHeader, PillarBadges, Pill, ScoreBar, Stat } from "../components/ui";
 import { useApi } from "../hooks/useApi";
 import { api } from "../lib/api";
-import { PILLARS, formatRange } from "../lib/format";
+import { PILLARS, formatRange, stripCitations } from "../lib/format";
 import type { Investigation } from "../lib/types";
 
 const SOURCE_LABEL: Record<string, string> = {
@@ -74,9 +74,9 @@ function AISummaryBlock({ inv }: { inv: Investigation }) {
   return (
     <div className="mt-4 rounded-xl bg-orange-500/5 p-4 ring-1 ring-orange-500/20">
       <div className="mb-2 flex items-center gap-2 text-xs text-orange-300"><Pill className="bg-orange-500/15 text-orange-200 ring-orange-500/30">AI summary</Pill>{s.model}</div>
-      <p className="text-sm text-slate-200">{s.plain_summary}</p>
-      <p className="mt-2 text-sm text-slate-300"><b className="text-white">Takeaway:</b> {s.fire_safety_takeaway}</p>
-      <p className="mt-2 text-sm text-slate-300"><b className="text-white">For modelers:</b> {s.modeling_use}</p>
+      <p className="text-sm text-slate-200">{stripCitations(s.plain_summary)}</p>
+      <p className="mt-2 text-sm text-slate-300"><b className="text-white">Takeaway:</b> {stripCitations(s.fire_safety_takeaway)}</p>
+      <p className="mt-2 text-sm text-slate-300"><b className="text-white">For modelers:</b> {stripCitations(s.modeling_use)}</p>
     </div>
   );
 }

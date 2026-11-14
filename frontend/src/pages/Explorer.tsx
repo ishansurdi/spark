@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, ErrorBox, Loading, PageHeader, PillarBadges, Pill, Toggle } from "../components/ui";
 import { useApi } from "../hooks/useApi";
 import { api } from "../lib/api";
-import { PILLARS, formatRange } from "../lib/format";
+import { PILLARS, formatRange, stripCitations } from "../lib/format";
 import type { InvestigationSummary, Pillar } from "../lib/types";
 
 export function Explorer() {
@@ -58,7 +58,7 @@ function InvestigationCard({ inv }: { inv: InvestigationSummary }) {
           </div>
           {inv.kind === "ground" && <Pill className="bg-white/5 text-slate-300 ring-white/10">ground</Pill>}
         </div>
-        <p className="mt-2 line-clamp-3 text-sm text-slate-300">{inv.summary ?? inv.relevance}</p>
+        <p className="mt-2 line-clamp-3 text-sm text-slate-300">{inv.summary ? stripCitations(inv.summary) : inv.relevance}</p>
         <div className="mt-3"><PillarBadges pillars={inv.pillars} /></div>
         <div className="mt-3 grid grid-cols-3 gap-2 text-xs text-slate-400">
           <span><b className="text-slate-200">{s.n_tests || "—"}</b> tests</span>
