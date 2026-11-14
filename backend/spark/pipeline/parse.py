@@ -8,9 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 
-ATM_PER_BAR = 1 / 1.01325
-ATM_PER_MMHG = 1 / 760
-PSI_PER_ATM = 14.6959
+from spark.units import ATM_PER_BAR, ATM_PER_MMHG, PSI_PER_ATM  # noqa: F401 (re-exported for normalizers)
 
 # Digits glued to letters are chemistry (O2, CH4, C2H4), not values.
 _NUMBER = re.compile(r"(?<![A-Za-z\d.])[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?(?![A-Za-z]*\d)")

@@ -14,7 +14,7 @@ import math
 
 from spark.core import store
 from spark.models import Environment
-from spark.pipeline.parse import PSI_PER_ATM
+from spark.units import PSI_PER_ATM
 
 DEFAULT_WEIGHTS = {"atmosphere": 0.30, "pillars": 0.25, "realism": 0.15, "scale": 0.10, "airflow": 0.10, "data": 0.10}
 FACTOR_LABELS = {
