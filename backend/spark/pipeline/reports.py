@@ -66,12 +66,15 @@ def source_title(path: Path, acc: str) -> str:
 
 
 def build_passages() -> list[dict]:
-    passages = []
+    """Passages from every report; identical text shared between investigations is kept once."""
+    passages, seen = [], set()
     for acc, path in report_files():
         title = source_title(path, acc)
         for page_number, raw in enumerate(page_texts(path), start=1):
             for text in split_passages(tidy(raw)):
-                passages.append({"investigation": acc, "source": title, "page": page_number, "text": text})
+                if text not in seen:
+                    seen.add(text)
+                    passages.append({"investigation": acc, "source": title, "page": page_number, "text": text})
         print(f"{acc}: {title}")
     return passages
 
