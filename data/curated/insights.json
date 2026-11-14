@@ -54,7 +54,7 @@
   ],
   "gaps": [
     {"title": "No partial-gravity data yet", "detail": "PSI holds microgravity (and some 1-g comparison) data only. Lunar and Martian habitats must be bounded between them until FM2 and LUCI report.", "research": ["PSI-22", "PSI-99"]},
-    {"title": "Few tests at lunar-habitat atmospheres", "detail": "Only gas-flame and droplet studies (FLEX, BRE, CFI-G, Flame Design) reach 30-34 % O2; no solid cabin material was burned there in PSI.", "research": ["PSI-69", "PSI-20", "PSI-159", "PSI-10"]},
+    {"title": "Few tests at lunar-habitat atmospheres", "detail": "Only gas-flame and droplet studies (FLEX, BRE, CFI-G, Flame Design) reach 30-40 % O2; the highest oxygen any solid material was burned at in PSI is 22.2 % (BASS-II).", "research": ["PSI-69", "PSI-20", "PSI-159", "PSI-10"]},
     {"title": "Pure-oxygen suit conditions", "detail": "The highest O2 in PSI is ~85 % in inverse gas flames; nothing approaches 100 % O2 at 4.3 psi.", "research": ["PSI-159"]},
     {"title": "Suppression of solid fires", "detail": "Suppression data are mostly droplets (FLEX) and small nitrogen jets (BASS); water mist and large-fire suppression are not in PSI.", "research": ["PSI-69", "PSI-26"]}
   ]

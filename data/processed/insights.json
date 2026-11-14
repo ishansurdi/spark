@@ -180,7 +180,7 @@
   },
   {
    "title": "Few tests at lunar-habitat atmospheres",
-   "detail": "Only gas-flame and droplet studies (FLEX, BRE, CFI-G, Flame Design) reach 30-34 % O2; no solid cabin material was burned there in PSI.",
+   "detail": "Only gas-flame and droplet studies (FLEX, BRE, CFI-G, Flame Design) reach 30-40 % O2; the highest oxygen any solid material was burned at in PSI is 22.2 % (BASS-II).",
    "research": [
     "PSI-69",
     "PSI-20",

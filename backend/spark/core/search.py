@@ -91,3 +91,8 @@ class Index:
 @lru_cache
 def index() -> Index:
     return Index(investigation_documents() + passage_documents())
+
+
+def index_size() -> int:
+    """Number of report passages available to search (excludes investigation summaries)."""
+    return sum(1 for doc in index().docs if doc.page is not None)

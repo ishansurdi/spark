@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
 from spark.ai import gemini, service
-from spark.core import ranking, store
+from spark.core import ranking, search, store
 
 router = APIRouter(prefix="/api")
 
@@ -27,6 +27,22 @@ def health() -> dict:
     return {"ok": True, "ai_configured": gemini.is_configured(), "investigations": len(store.investigations())}
 
 
+@router.get("/overview")
+def overview() -> dict:
+    """Headline numbers for the home page, computed from the dataset."""
+    lunar = store.get_environment("lunar_base")
+    tests = store.tests()
+    inside_lunar = sum(1 for t in tests if lunar and ranking.closeness_box(t, lunar))
+    return {
+        "investigations": len(store.investigations()),
+        "flight_investigations": sum(1 for i in store.investigations() if i["kind"] == "flight"),
+        "tests": len(tests),
+        "report_passages": search.index_size(),
+        "tests_inside_lunar_atmosphere": inside_lunar,
+        "max_o2_pct": max(t["o2_pct"] for t in tests if t.get("o2_pct") is not None),
+    }
+
+
 @router.get("/environments")
 def environments() -> list[dict]:
     return [env.model_dump() for env in store.environments().values()]
@@ -37,6 +53,7 @@ def investigations() -> list[dict]:
     summaries = service.stored_summaries()
     return [
         {**{k: inv[k] for k in LIST_FIELDS}, "title": inv["psi"]["title"], "stats": inv["stats"],
+         "start": inv["psi"]["start"], "end": inv["psi"]["end"],
          "summary": summaries.get(inv["id"], {}).get("plain_summary")}
         for inv in store.investigations()
     ]

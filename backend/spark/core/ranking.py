@@ -49,6 +49,14 @@ def closeness(test: dict, env: Environment) -> float | None:
     return weight * math.exp(-(d_o2 ** 2 + d_p ** 2))
 
 
+def closeness_box(test: dict, env: Environment) -> bool:
+    """True when a test's O2 and pressure both sit inside the environment's design range."""
+    o2, pressure = test.get("o2_pct"), test.get("pressure_atm")
+    if o2 is None or not pressure:
+        return False
+    return outside(o2, *env.o2_pct) == 0 and outside(pressure * PSI_PER_ATM, *env.pressure_psi) == 0
+
+
 def atmosphere_factor(tests: list[dict], env: Environment) -> tuple[float, int]:
     scores = [c for c in (closeness(t, env) for t in tests) if c is not None]
     if not scores:
