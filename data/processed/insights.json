@@ -203,5 +203,81 @@
     "PSI-26"
    ]
   }
+ ],
+ "equipment": [
+  {
+   "equipment": "Smoke and fire detectors",
+   "icon": "detector",
+   "evidence": "Spacecraft smoke averages 100-200 nm in diameter, yet much of its mass is in particles above 1 um; ionization detectors catch the sub-micron fraction best. Background ISS dust differs from smoke.",
+   "implication": "Multi-size particle sensing tuned to pre-fire pyrolysis products, with dust discrimination to cut false alarms on long missions.",
+   "research": [
+    "PSI-102",
+    "PSI-101",
+    "PSI-47",
+    "PSI-115"
+   ],
+   "source": "SAME / SAME-R fact sheets; DAFT results"
+  },
+  {
+   "equipment": "Gas suppression systems",
+   "icon": "suppression",
+   "evidence": "The limiting oxygen index is lower in reduced gravity, so inert gases such as CO2 and helium give less safety margin than Earth standards assume. FLEX also tested reduced pressure, relevant to venting a cabin.",
+   "implication": "Size suppressant quantities from microgravity flammability limits, and pair them with depressurization strategies.",
+   "research": [
+    "PSI-69",
+    "PSI-68",
+    "PSI-142"
+   ],
+   "source": "Researcher's Guide, p. 12; FLEX fact sheet"
+  },
+  {
+   "equipment": "Portable extinguishers and procedures",
+   "icon": "extinguisher",
+   "evidence": "A local nitrogen jet can entrain air and strengthen a microgravity flame; the best aim point is not obvious. Water-mist portable extinguishers replaced CO2 units on the ISS in 2015.",
+   "implication": "Discharge nozzles and crew procedures designed to avoid feeding oxygen to the flame, building on water-mist technology.",
+   "research": [
+    "PSI-26",
+    "PSI-25"
+   ],
+   "source": "Researcher's Guide, pp. 22, 26, 31"
+  },
+  {
+   "equipment": "Material screening standards",
+   "icon": "material",
+   "evidence": "Materials can burn at lower oxygen in microgravity, so the NASA-STD-6001 Test 1 upward-burning screen is not conservative. No solid material in PSI was burned above 22.2 % O2.",
+   "implication": "Screening tests that cover low-flow, oxygen-enriched conditions before materials fly in 30-34 % O2 lunar habitats.",
+   "research": [
+    "PSI-25",
+    "PSI-26",
+    "PSI-99",
+    "PSI-20"
+   ],
+   "source": "Researcher's Guide, p. 31; SPARK analysis of PSI tables"
+  },
+  {
+   "equipment": "Ventilation and fire-response controls",
+   "icon": "ventilation",
+   "evidence": "Solid-material flammability is worst near typical cabin ventilation speeds (~10 cm/s), and flames can spread upstream into slow airflow; shutting ventilation alone may not extinguish a fire.",
+   "implication": "Control logic that stops airflow and triggers active suppression together, with detectors placed for upstream spread.",
+   "research": [
+    "PSI-25",
+    "PSI-26",
+    "PSI-98"
+   ],
+   "source": "Researcher's Guide, pp. 18, 31"
+  },
+  {
+   "equipment": "Fire models for habitat design",
+   "icon": "model",
+   "evidence": "Microgravity flames hold 5-8 times more soot than on Earth, and soot dominates flame radiation; smoke points and spread rates were measured to validate models.",
+   "implication": "Radiation-aware fire models (validated on PSI data) to size thermal protection and place detectors before hardware is built.",
+   "research": [
+    "PSI-21",
+    "PSI-107",
+    "PSI-60",
+    "PSI-62"
+   ],
+   "source": "ACME overview; SPICE fact sheet"
+  }
  ]
 }

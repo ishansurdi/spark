@@ -1,61 +1,284 @@
 {
-  "_about": "Curated narrative content for the Insights page. Every item links to its NASA source and to the PSI investigations that address it.",
-  "incidents": [
-    {
-      "id": "apollo1", "name": "Apollo 1", "date": "1967-01-27", "setting": "Command Module, launch-pad test",
-      "what_happened": "A flash fire swept through the cabin, pressurized with 100 % oxygen, during a ground test. The three crew died of asphyxia from carbon monoxide and toxic gases; their burns were likely survivable.",
-      "cause": "Likely ignition from arcing wires near the environmental control system; pure oxygen made the fire spread very fast.",
-      "lessons": ["Strictly control the amount and location of combustible materials", "Fire-resistant spacesuit materials", "A hatch that opens in 3 seconds", "Safety review even for 'non-hazardous' tests"],
-      "research": ["PSI-25", "PSI-26", "PSI-99", "PSI-159"],
-      "connection": "Material flammability limits at high oxygen (BASS, BASS-II, Saffire) and the high-O2 flame data of CFI-G address exactly the risk Apollo 1 exposed.",
-      "source": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1"
-    },
-    {
-      "id": "apollo13", "name": "Apollo 13", "date": "1970-04", "setting": "Service Module oxygen tank, en route to the Moon",
-      "what_happened": "Oxygen tank 2 exploded, damaging tank 1; the crew used the Lunar Module as a lifeboat and returned safely.",
-      "cause": "Heater thermostats were not upgraded for a 65 V supply; heaters overheated to about 1000 F and degraded the wire insulation inside an oxygen tank.",
-      "lessons": ["Redesign oxygen storage and review all cryogenic-oxygen systems", "Sheath wiring in stainless steel", "Insulation added after Apollo 1 prevented arcing at re-entry power-up"],
-      "research": ["PSI-102", "PSI-101", "PSI-25"],
-      "connection": "Overheated insulation in an oxygen-rich space is a pre-fire event: SAME/SAME-R show that detecting pyrolysis products early is the key to catching it.",
-      "source": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13"
-    },
-    {
-      "id": "mir", "name": "Mir station fire", "date": "1997-02-24", "setting": "Kvant-1 module, six crew aboard",
-      "what_happened": "A solid-fuel oxygen generator canister ignited, shooting a ~1 m flame that blocked the path to a Soyuz escape craft and filled the station with smoke. Foam extinguishers were used; the flame burned out on its own.",
-      "cause": "Most likely latex glove material contaminated the lithium-perchlorate canister.",
-      "lessons": ["Changed crew emergency training and ground support", "Changed ground preparation of oxygen canisters", "Redundant, dissimilar oxygen generation on ISS"],
-      "research": ["PSI-69", "PSI-26", "PSI-102", "PSI-47"],
-      "connection": "Suppression in microgravity (FLEX, BASS) and smoke behaviour and detection (SAME, DAFT) are the research areas this fire made urgent.",
-      "source": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/"
-    },
-    {
-      "id": "artemis2", "name": "Artemis II smoke alarm", "date": null, "setting": "Orion, ~80,000 miles from Earth",
-      "what_happened": "A smoke alarm went off during the crewed lunar flyby, a reminder that any alarm far from home demands immediate, reliable answers.",
-      "cause": "Reported in the challenge statement; details not covered in the provided resources.",
-      "lessons": ["Detectors must be sensitive yet resistant to false alarms on long missions"],
-      "research": ["PSI-102", "PSI-101", "PSI-47"],
-      "connection": "SAME, SAME-R and DAFT characterize smoke versus background dust so detectors raise fewer false alarms.",
-      "source": "NASA Space Apps 2026 challenge statement"
-    }
-  ],
-  "myths": [
-    {"myth": "A steady fire cannot exist in still microgravity air.", "reality": "Candle flames burned for over 45 minutes on Mir, and flame balls burned for 40+ minutes in space.", "source": "Researcher's Guide, p. 30", "research": ["PSI-23", "PSI-159"]},
-    {"myth": "A fire will self-extinguish if the ventilation is shut off.", "reality": "A local suppressant jet entrains air and sustains the flame even with ambient airflow off.", "source": "Researcher's Guide, pp. 31, 35", "research": ["PSI-26", "PSI-25"]},
-    {"myth": "Earth-gravity fire tests are conservative for space.", "reality": "BASS showed materials can burn at lower oxygen in microgravity; NASA-STD-6001 Test 1 is not conservative.", "source": "Researcher's Guide, p. 31", "research": ["PSI-26", "PSI-25", "PSI-20"]},
-    {"myth": "Inert-gas suppressants work as well in space as on Earth.", "reality": "FLEX found a lower limiting oxygen index in reduced gravity, so Earth standards give less safety margin.", "source": "Researcher's Guide, p. 12", "research": ["PSI-69"]},
-    {"myth": "Earth smoke detectors will work in a spacecraft.", "reality": "Microgravity smoke particles differ in size; detectors must look for different signatures, especially pre-fire pyrolysis products.", "source": "Researcher's Guide, p. 35; SAME fact sheet", "research": ["PSI-102", "PSI-101", "PSI-47"]}
-  ],
-  "spinoffs": [
-    {"name": "Lighter firefighter air tanks", "year": 1976, "detail": "Spacesuit-derived breathing system: 20 lb with 30 minutes of air, 13 lb lighter than conventional tanks, pressurized to 4,500 psi.", "source": "https://spinoff.nasa.gov/node/9582"},
-    {"name": "Incipient fire detector", "year": 1978, "detail": "Shuttle detector that senses fire before flame or smoke and tells combustion particles from dust; trialled in mining.", "source": "https://spinoff.nasa.gov/node/9407", "research": ["PSI-47", "PSI-102"]},
-    {"name": "FIRES firefighter gear", "year": 1982, "detail": "Fire-resistant suit materials from Apollo (e.g. PBI, developed after the Apollo 1 fire) cut ensemble weight by about 40 %.", "source": "https://spinoff.nasa.gov/node/9918"},
-    {"name": "Water-mist extinguishers", "year": 2015, "detail": "Portable water-mist extinguishers developed from microgravity mist research replaced CO2 units on the ISS, with uses on Earth.", "source": "Researcher's Guide, p. 26"},
-    {"name": "Submarine and habitat smoke detection", "year": null, "detail": "SAME results inform smoke detectors for submarines and underwater laboratories.", "source": "SAME fact sheet", "research": ["PSI-102"]}
-  ],
-  "gaps": [
-    {"title": "No partial-gravity data yet", "detail": "PSI holds microgravity (and some 1-g comparison) data only. Lunar and Martian habitats must be bounded between them until FM2 and LUCI report.", "research": ["PSI-22", "PSI-99"]},
-    {"title": "Few tests at lunar-habitat atmospheres", "detail": "Only gas-flame and droplet studies (FLEX, BRE, CFI-G, Flame Design) reach 30-40 % O2; the highest oxygen any solid material was burned at in PSI is 22.2 % (BASS-II).", "research": ["PSI-69", "PSI-20", "PSI-159", "PSI-10"]},
-    {"title": "Pure-oxygen suit conditions", "detail": "The highest O2 in PSI is ~85 % in inverse gas flames; nothing approaches 100 % O2 at 4.3 psi.", "research": ["PSI-159"]},
-    {"title": "Suppression of solid fires", "detail": "Suppression data are mostly droplets (FLEX) and small nitrogen jets (BASS); water mist and large-fire suppression are not in PSI.", "research": ["PSI-69", "PSI-26"]}
-  ]
+ "_about": "Curated narrative content for the Insights page. Every item links to its NASA source and to the PSI investigations that address it.",
+ "incidents": [
+  {
+   "id": "apollo1",
+   "name": "Apollo 1",
+   "date": "1967-01-27",
+   "setting": "Command Module, launch-pad test",
+   "what_happened": "A flash fire swept through the cabin, pressurized with 100 % oxygen, during a ground test. The three crew died of asphyxia from carbon monoxide and toxic gases; their burns were likely survivable.",
+   "cause": "Likely ignition from arcing wires near the environmental control system; pure oxygen made the fire spread very fast.",
+   "lessons": [
+    "Strictly control the amount and location of combustible materials",
+    "Fire-resistant spacesuit materials",
+    "A hatch that opens in 3 seconds",
+    "Safety review even for 'non-hazardous' tests"
+   ],
+   "research": [
+    "PSI-25",
+    "PSI-26",
+    "PSI-99",
+    "PSI-159"
+   ],
+   "connection": "Material flammability limits at high oxygen (BASS, BASS-II, Saffire) and the high-O2 flame data of CFI-G address exactly the risk Apollo 1 exposed.",
+   "source": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1"
+  },
+  {
+   "id": "apollo13",
+   "name": "Apollo 13",
+   "date": "1970-04",
+   "setting": "Service Module oxygen tank, en route to the Moon",
+   "what_happened": "Oxygen tank 2 exploded, damaging tank 1; the crew used the Lunar Module as a lifeboat and returned safely.",
+   "cause": "Heater thermostats were not upgraded for a 65 V supply; heaters overheated to about 1000 F and degraded the wire insulation inside an oxygen tank.",
+   "lessons": [
+    "Redesign oxygen storage and review all cryogenic-oxygen systems",
+    "Sheath wiring in stainless steel",
+    "Insulation added after Apollo 1 prevented arcing at re-entry power-up"
+   ],
+   "research": [
+    "PSI-102",
+    "PSI-101",
+    "PSI-25"
+   ],
+   "connection": "Overheated insulation in an oxygen-rich space is a pre-fire event: SAME/SAME-R show that detecting pyrolysis products early is the key to catching it.",
+   "source": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13"
+  },
+  {
+   "id": "mir",
+   "name": "Mir station fire",
+   "date": "1997-02-24",
+   "setting": "Kvant-1 module, six crew aboard",
+   "what_happened": "A solid-fuel oxygen generator canister ignited, shooting a ~1 m flame that blocked the path to a Soyuz escape craft and filled the station with smoke. Foam extinguishers were used; the flame burned out on its own.",
+   "cause": "Most likely latex glove material contaminated the lithium-perchlorate canister.",
+   "lessons": [
+    "Changed crew emergency training and ground support",
+    "Changed ground preparation of oxygen canisters",
+    "Redundant, dissimilar oxygen generation on ISS"
+   ],
+   "research": [
+    "PSI-69",
+    "PSI-26",
+    "PSI-102",
+    "PSI-47"
+   ],
+   "connection": "Suppression in microgravity (FLEX, BASS) and smoke behaviour and detection (SAME, DAFT) are the research areas this fire made urgent.",
+   "source": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/"
+  },
+  {
+   "id": "artemis2",
+   "name": "Artemis II smoke alarm",
+   "date": null,
+   "setting": "Orion, ~80,000 miles from Earth",
+   "what_happened": "A smoke alarm went off during the crewed lunar flyby, a reminder that any alarm far from home demands immediate, reliable answers.",
+   "cause": "Reported in the challenge statement; details not covered in the provided resources.",
+   "lessons": [
+    "Detectors must be sensitive yet resistant to false alarms on long missions"
+   ],
+   "research": [
+    "PSI-102",
+    "PSI-101",
+    "PSI-47"
+   ],
+   "connection": "SAME, SAME-R and DAFT characterize smoke versus background dust so detectors raise fewer false alarms.",
+   "source": "NASA Space Apps 2026 challenge statement"
+  }
+ ],
+ "myths": [
+  {
+   "myth": "A steady fire cannot exist in still microgravity air.",
+   "reality": "Candle flames burned for over 45 minutes on Mir, and flame balls burned for 40+ minutes in space.",
+   "source": "Researcher's Guide, p. 30",
+   "research": [
+    "PSI-23",
+    "PSI-159"
+   ]
+  },
+  {
+   "myth": "A fire will self-extinguish if the ventilation is shut off.",
+   "reality": "A local suppressant jet entrains air and sustains the flame even with ambient airflow off.",
+   "source": "Researcher's Guide, pp. 31, 35",
+   "research": [
+    "PSI-26",
+    "PSI-25"
+   ]
+  },
+  {
+   "myth": "Earth-gravity fire tests are conservative for space.",
+   "reality": "BASS showed materials can burn at lower oxygen in microgravity; NASA-STD-6001 Test 1 is not conservative.",
+   "source": "Researcher's Guide, p. 31",
+   "research": [
+    "PSI-26",
+    "PSI-25",
+    "PSI-20"
+   ]
+  },
+  {
+   "myth": "Inert-gas suppressants work as well in space as on Earth.",
+   "reality": "FLEX found a lower limiting oxygen index in reduced gravity, so Earth standards give less safety margin.",
+   "source": "Researcher's Guide, p. 12",
+   "research": [
+    "PSI-69"
+   ]
+  },
+  {
+   "myth": "Earth smoke detectors will work in a spacecraft.",
+   "reality": "Microgravity smoke particles differ in size; detectors must look for different signatures, especially pre-fire pyrolysis products.",
+   "source": "Researcher's Guide, p. 35; SAME fact sheet",
+   "research": [
+    "PSI-102",
+    "PSI-101",
+    "PSI-47"
+   ]
+  }
+ ],
+ "spinoffs": [
+  {
+   "name": "Lighter firefighter air tanks",
+   "year": 1976,
+   "detail": "Spacesuit-derived breathing system: 20 lb with 30 minutes of air, 13 lb lighter than conventional tanks, pressurized to 4,500 psi.",
+   "source": "https://spinoff.nasa.gov/node/9582"
+  },
+  {
+   "name": "Incipient fire detector",
+   "year": 1978,
+   "detail": "Shuttle detector that senses fire before flame or smoke and tells combustion particles from dust; trialled in mining.",
+   "source": "https://spinoff.nasa.gov/node/9407",
+   "research": [
+    "PSI-47",
+    "PSI-102"
+   ]
+  },
+  {
+   "name": "FIRES firefighter gear",
+   "year": 1982,
+   "detail": "Fire-resistant suit materials from Apollo (e.g. PBI, developed after the Apollo 1 fire) cut ensemble weight by about 40 %.",
+   "source": "https://spinoff.nasa.gov/node/9918"
+  },
+  {
+   "name": "Water-mist extinguishers",
+   "year": 2015,
+   "detail": "Portable water-mist extinguishers developed from microgravity mist research replaced CO2 units on the ISS, with uses on Earth.",
+   "source": "Researcher's Guide, p. 26"
+  },
+  {
+   "name": "Submarine and habitat smoke detection",
+   "year": null,
+   "detail": "SAME results inform smoke detectors for submarines and underwater laboratories.",
+   "source": "SAME fact sheet",
+   "research": [
+    "PSI-102"
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "No partial-gravity data yet",
+   "detail": "PSI holds microgravity (and some 1-g comparison) data only. Lunar and Martian habitats must be bounded between them until FM2 and LUCI report.",
+   "research": [
+    "PSI-22",
+    "PSI-99"
+   ]
+  },
+  {
+   "title": "Few tests at lunar-habitat atmospheres",
+   "detail": "Only gas-flame and droplet studies (FLEX, BRE, CFI-G, Flame Design) reach 30-40 % O2; the highest oxygen any solid material was burned at in PSI is 22.2 % (BASS-II).",
+   "research": [
+    "PSI-69",
+    "PSI-20",
+    "PSI-159",
+    "PSI-10"
+   ]
+  },
+  {
+   "title": "Pure-oxygen suit conditions",
+   "detail": "The highest O2 in PSI is ~85 % in inverse gas flames; nothing approaches 100 % O2 at 4.3 psi.",
+   "research": [
+    "PSI-159"
+   ]
+  },
+  {
+   "title": "Suppression of solid fires",
+   "detail": "Suppression data are mostly droplets (FLEX) and small nitrogen jets (BASS); water mist and large-fire suppression are not in PSI.",
+   "research": [
+    "PSI-69",
+    "PSI-26"
+   ]
+  }
+ ],
+ "equipment": [
+  {
+   "equipment": "Smoke and fire detectors",
+   "icon": "detector",
+   "evidence": "Spacecraft smoke averages 100-200 nm in diameter, yet much of its mass is in particles above 1 um; ionization detectors catch the sub-micron fraction best. Background ISS dust differs from smoke.",
+   "implication": "Multi-size particle sensing tuned to pre-fire pyrolysis products, with dust discrimination to cut false alarms on long missions.",
+   "research": [
+    "PSI-102",
+    "PSI-101",
+    "PSI-47",
+    "PSI-115"
+   ],
+   "source": "SAME / SAME-R fact sheets; DAFT results"
+  },
+  {
+   "equipment": "Gas suppression systems",
+   "icon": "suppression",
+   "evidence": "The limiting oxygen index is lower in reduced gravity, so inert gases such as CO2 and helium give less safety margin than Earth standards assume. FLEX also tested reduced pressure, relevant to venting a cabin.",
+   "implication": "Size suppressant quantities from microgravity flammability limits, and pair them with depressurization strategies.",
+   "research": [
+    "PSI-69",
+    "PSI-68",
+    "PSI-142"
+   ],
+   "source": "Researcher's Guide, p. 12; FLEX fact sheet"
+  },
+  {
+   "equipment": "Portable extinguishers and procedures",
+   "icon": "extinguisher",
+   "evidence": "A local nitrogen jet can entrain air and strengthen a microgravity flame; the best aim point is not obvious. Water-mist portable extinguishers replaced CO2 units on the ISS in 2015.",
+   "implication": "Discharge nozzles and crew procedures designed to avoid feeding oxygen to the flame, building on water-mist technology.",
+   "research": [
+    "PSI-26",
+    "PSI-25"
+   ],
+   "source": "Researcher's Guide, pp. 22, 26, 31"
+  },
+  {
+   "equipment": "Material screening standards",
+   "icon": "material",
+   "evidence": "Materials can burn at lower oxygen in microgravity, so the NASA-STD-6001 Test 1 upward-burning screen is not conservative. No solid material in PSI was burned above 22.2 % O2.",
+   "implication": "Screening tests that cover low-flow, oxygen-enriched conditions before materials fly in 30-34 % O2 lunar habitats.",
+   "research": [
+    "PSI-25",
+    "PSI-26",
+    "PSI-99",
+    "PSI-20"
+   ],
+   "source": "Researcher's Guide, p. 31; SPARK analysis of PSI tables"
+  },
+  {
+   "equipment": "Ventilation and fire-response controls",
+   "icon": "ventilation",
+   "evidence": "Solid-material flammability is worst near typical cabin ventilation speeds (~10 cm/s), and flames can spread upstream into slow airflow; shutting ventilation alone may not extinguish a fire.",
+   "implication": "Control logic that stops airflow and triggers active suppression together, with detectors placed for upstream spread.",
+   "research": [
+    "PSI-25",
+    "PSI-26",
+    "PSI-98"
+   ],
+   "source": "Researcher's Guide, pp. 18, 31"
+  },
+  {
+   "equipment": "Fire models for habitat design",
+   "icon": "model",
+   "evidence": "Microgravity flames hold 5-8 times more soot than on Earth, and soot dominates flame radiation; smoke points and spread rates were measured to validate models.",
+   "implication": "Radiation-aware fire models (validated on PSI data) to size thermal protection and place detectors before hardware is built.",
+   "research": [
+    "PSI-21",
+    "PSI-107",
+    "PSI-60",
+    "PSI-62"
+   ],
+   "source": "ACME overview; SPICE fact sheet"
+  }
+ ]
 }

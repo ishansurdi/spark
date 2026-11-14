@@ -27,7 +27,7 @@ export function Insights() {
   const invs = useApi(api.investigations, []);
   if (data.error) return <Section><ErrorBox message={data.error} /></Section>;
   if (!data.data) return <Section><Loading /></Section>;
-  const { incidents, myths, spinoffs, gaps } = data.data;
+  const { incidents, myths, spinoffs, gaps, equipment } = data.data;
 
   return (
     <>
@@ -79,6 +79,29 @@ export function Insights() {
       </Section>
 
       <Section>
+        <SectionHeading eyebrow="Next-generation equipment" title="What the research means for fire-safety hardware"
+          intro="Each row links PSI evidence to a design implication for detectors, suppression, extinguishers, materials, controls and models. Implications are SPARK's interpretation; follow the research links to the source data." />
+        <div className="divide-y divide-line border-y-2 border-ink">
+          {equipment.map((e, i) => (
+            <article key={e.equipment} className="grid gap-4 py-6 md:grid-cols-[2.5rem_1.1fr_1.6fr_1.6fr]">
+              <span className="font-mono text-lg text-accent-dark">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="text-lg font-bold leading-snug">{e.equipment}</h3>
+              <div>
+                <div className="font-mono text-[0.68rem] uppercase tracking-wider text-ink-3">What the data shows</div>
+                <p className="mt-1 text-sm leading-relaxed text-ink-2">{e.evidence}</p>
+                <ResearchLinks ids={e.research} />
+              </div>
+              <div>
+                <div className="font-mono text-[0.68rem] uppercase tracking-wider text-ink-3">Design implication</div>
+                <p className="mt-1 text-sm font-medium leading-relaxed text-ink">{e.implication}</p>
+                <SourceLink source={e.source} />
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="gray">
         <SectionHeading eyebrow="Data gaps" title="What we still don't know for the Moon and Mars"
           intro="PSI holds microgravity data only. These gaps are where upcoming experiments such as FM2 and LUCI, and future teams, should focus." />
         <div className="grid gap-6 md:grid-cols-2">
@@ -92,7 +115,7 @@ export function Insights() {
         </div>
       </Section>
 
-      <Section tone="gray">
+      <Section>
         <SectionHeading eyebrow="Back on Earth" title="Space fire research in everyday safety" />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {spinoffs.map((s) => (
