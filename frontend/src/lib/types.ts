@@ -40,6 +40,7 @@ export interface InvestigationSummary {
   title: string;
   group: string;
   kind: "flight" | "ground";
+  hardware_family: string;
   pillars: Record<Pillar, number>;
   relevance: string;
   material_realism: number;
@@ -157,4 +158,5 @@ export interface Insights {
   myths: { myth: string; reality: string; source: string; research: string[] }[];
   spinoffs: { name: string; year: number | null; detail: string; source: string; research?: string[] }[];
   gaps: { title: string; detail: string; research: string[] }[];
+  equipment: { equipment: string; icon: string; evidence: string; implication: string; research: string[]; source: string }[];
 }

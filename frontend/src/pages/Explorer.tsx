@@ -12,26 +12,36 @@ export function Explorer() {
   const [pillar, setPillar] = useState<"all" | Pillar>("all");
   const [kind, setKind] = useState("all");
   const [query, setQuery] = useState("");
+  const [hardware, setHardware] = useState("all");
+  const [groupBy, setGroupBy] = useState<"group" | "hardware_family">("group");
+  const families = useMemo(() => [...new Set((invs.data ?? []).map((i) => i.hardware_family))], [invs.data]);
 
   const filtered = useMemo(() => (invs.data ?? []).filter((inv) =>
     (pillar === "all" || inv.pillars[pillar] >= 0.5)
     && (kind === "all" || inv.kind === kind)
+    && (hardware === "all" || inv.hardware_family === hardware)
     && `${inv.short} ${inv.title} ${inv.group} ${inv.fuels.join(" ")}`.toLowerCase().includes(query.toLowerCase()),
-  ), [invs.data, pillar, kind, query]);
+  ), [invs.data, pillar, kind, hardware, query]);
 
-  const groups = [...new Set(filtered.map((i) => i.group))];
+  const groups = [...new Set(filtered.map((i) => i[groupBy]))];
   return (
     <>
       <PageBanner eyebrow="Investigations" title="Two decades of fire experiments in orbit"
         intro="Flight experiments on the ISS and Cygnus cargo vehicles, plus ground studies that model their data. Filter by fire-safety pillar, platform or material."
         image="/img/efield-blue.jpg" />
       <div className="sticky top-[73px] z-20 border-b border-line bg-paper/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 lg:flex-row lg:items-center">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 overflow-x-auto px-4 py-4">
           <Toggle options={[{ id: "all", label: "All pillars" }, ...PILLARS.map((p) => ({ id: p, label: p }))]} value={pillar} onChange={(v) => setPillar(v as typeof pillar)} />
           <Toggle options={[{ id: "all", label: "All" }, { id: "flight", label: "Flight" }, { id: "ground", label: "Ground" }]} value={kind} onChange={setKind} />
+          <select value={hardware} onChange={(e) => setHardware(e.target.value)} aria-label="Filter by hardware"
+            className="border border-ink bg-paper px-3 py-2 text-sm">
+            <option value="all">All hardware</option>
+            {families.map((f) => <option key={f} value={f}>{f}</option>)}
+          </select>
+          <Toggle options={[{ id: "group", label: "By topic" }, { id: "hardware_family", label: "By hardware" }]} value={groupBy} onChange={(v) => setGroupBy(v as typeof groupBy)} />
           <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search fuel, material or name"
             aria-label="Search investigations"
-            className="w-full border border-ink bg-paper px-3 py-2 text-sm placeholder:text-ink-3 focus:outline-2 focus:outline-accent lg:ml-auto lg:w-80" />
+            className="min-w-56 flex-1 border border-ink bg-paper px-3 py-2 text-sm placeholder:text-ink-3 focus:outline-2 focus:outline-accent" />
         </div>
       </div>
       <Section>
@@ -41,10 +51,10 @@ export function Explorer() {
           <div key={group} className="mb-14">
             <div className="mb-5 flex items-baseline justify-between border-b-2 border-ink pb-2">
               <h2 className="text-xl font-bold">{group}</h2>
-              <span className="font-mono text-xs uppercase tracking-wider text-ink-3">{filtered.filter((i) => i.group === group).length} investigations</span>
+              <span className="font-mono text-xs uppercase tracking-wider text-ink-3">{filtered.filter((i) => i[groupBy] === group).length} investigations</span>
             </div>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {filtered.filter((i) => i.group === group).map((inv) => <InvestigationCard key={inv.id} inv={inv} />)}
+              {filtered.filter((i) => i[groupBy] === group).map((inv) => <InvestigationCard key={inv.id} inv={inv} />)}
             </div>
           </div>
         ))}
@@ -69,6 +79,7 @@ function InvestigationCard({ inv }: { inv: InvestigationSummary }) {
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-xl font-bold group-hover:text-accent-dark">{inv.short}</h3>
         <div className="text-sm text-ink-3">{inv.title}</div>
+        <div className="mt-1 font-mono text-[0.68rem] uppercase tracking-wider text-ink-2">{inv.hardware_family}</div>
         <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-2">{inv.summary ? stripCitations(inv.summary) : inv.relevance}</p>
         <div className="mt-4"><PillarBadges pillars={inv.pillars} /></div>
         <dl className="mt-4 grid grid-cols-3 border-t border-line pt-3 font-mono text-xs">

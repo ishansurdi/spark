@@ -152,7 +152,7 @@ export function Toggle({ options, value, onChange, dark = false }: {
   options: { id: string; label: string }[]; value: string; onChange: (id: string) => void; dark?: boolean;
 }) {
   return (
-    <div className={`inline-flex flex-wrap border ${dark ? "border-white/25" : "border-ink"}`} role="group">
+    <div className={`inline-flex shrink-0 flex-nowrap whitespace-nowrap border ${dark ? "border-white/25" : "border-ink"}`} role="group">
       {options.map((o) => {
         const active = value === o.id;
         return (

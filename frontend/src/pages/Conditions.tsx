@@ -3,7 +3,8 @@ import type { Data, Layout } from "plotly.js";
 import { Chart, Legend } from "../components/Chart";
 import { ErrorBox, HeroNumber, Loading, PageBanner, Panel, Section, SectionHeading, Toggle } from "../components/ui";
 import { useApi } from "../hooks/useApi";
-import { api } from "../lib/api";
+import { DataDownload } from "../components/DataDownload";
+import { api, downloads } from "../lib/api";
 import { INK, OTHER, PHASE_COLOR, PHASE_LABEL, SEQUENTIAL, SERIES } from "../lib/chartTheme";
 import { PSI_PER_ATM } from "../lib/format";
 import type { Environment, InvestigationSummary, TestPoint } from "../lib/types";
@@ -97,6 +98,10 @@ export function Conditions() {
             {flex.data ? <SuppressionMap tests={flex.data} /> : <Loading />}
           </Panel>
         </div>
+      </Section>
+
+      <Section>
+        <DataDownload title="Download every test as one table" rows={tests.data.length} csv={downloads.allTestsCsv} />
       </Section>
     </>
   );

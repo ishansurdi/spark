@@ -101,9 +101,12 @@ def build() -> None:
     investigations = []
     for curated in load_curated("investigations", "investigations"):
         acc = curated["id"]
+        psi = psi_summary(load_psi_record(acc))
+        if curated.get("hardware_override") and not psi["hardware"]:
+            psi["hardware"] = curated["hardware_override"]
         investigations.append({
-            **curated,
-            "psi": psi_summary(load_psi_record(acc)),
+            **{k: v for k, v in curated.items() if k != "hardware_override"},
+            "psi": psi,
             "stats": test_statistics(by_investigation.get(acc, [])),
         })
 

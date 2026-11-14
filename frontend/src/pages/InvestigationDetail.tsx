@@ -5,7 +5,8 @@ import {
   ButtonLink, Container, ErrorBox, Eyebrow, InvestigationLink, Loading, Panel, PillarBadges, Pill, ScoreBar, Section, Stat,
 } from "../components/ui";
 import { useApi } from "../hooks/useApi";
-import { api } from "../lib/api";
+import { DataDownload } from "../components/DataDownload";
+import { api, downloads } from "../lib/api";
 import { SERIES } from "../lib/chartTheme";
 import { PILLARS, PSI_PER_ATM, formatRange, stripCitations } from "../lib/format";
 import { imageFor } from "../lib/images";
@@ -48,7 +49,7 @@ export function InvestigationDetail() {
       <div className="border-b border-line bg-paper-2">
         <Container className="grid grid-cols-2 gap-6 py-6 md:grid-cols-5">
           <Stat label="Platform" value={d.psi.platform || "Ground study"} />
-          <Stat label="Hardware" value={d.psi.hardware || "—"} />
+          <Stat label="Hardware" value={<>{d.psi.hardware || "—"}<div className="mt-1 font-mono text-[0.68rem] uppercase tracking-wider text-ink-3">{d.hardware_family}</div></>} />
           <Stat label="Period" value={`${d.psi.start ?? "?"} – ${d.psi.end ?? "?"}`} />
           <Stat label="Tests in PSI" value={d.stats.n_tests || "—"} />
           <Stat label="License" value={d.psi.license || "—"} />
@@ -75,6 +76,10 @@ export function InvestigationDetail() {
             </div>
             {d.stats.n_tests > 0 && tests.data && <TestCharts inv={d} tests={tests.data as unknown as TestPoint[]} />}
             <ConditionsPanel inv={d} />
+            {d.stats.n_tests > 0 && (
+              <DataDownload title={`Download ${d.short} test data`} rows={d.stats.n_tests}
+                csv={downloads.investigationCsv(d.id)} json={downloads.investigationJson(d.id)} />
+            )}
             <TextBlock title="Objectives" text={d.psi.objective} />
             <TextBlock title="Approach" text={d.psi.approach} />
             {d.psi.publications.length > 0 && <Publications inv={d} />}

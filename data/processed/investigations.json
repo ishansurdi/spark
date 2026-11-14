@@ -43,6 +43,7 @@
    }
   ],
   "earth_applications": "Validated flame-spread models for building and wildland fire codes.",
+  "hardware_family": "SPICE flow duct · Microgravity Science Glovebox",
   "psi": {
    "title": "Burning and Suppression of Solids",
    "acronym": "BASS",
@@ -202,6 +203,7 @@
    }
   ],
   "earth_applications": "Fire models for wildfires, building fires and waste-to-energy combustion.",
+  "hardware_family": "SPICE flow duct · Microgravity Science Glovebox",
   "psi": {
    "title": "Burning and Suppression of Solids - II",
    "acronym": "BASS-II",
@@ -391,6 +393,7 @@
    }
   ],
   "earth_applications": "Fire growth data for confined vehicles such as aircraft cabins and submarines.",
+  "hardware_family": "Saffire flow duct · Cygnus cargo vehicle",
   "psi": {
    "title": "Spacecraft Fire Safety Experiment-I",
    "acronym": "SAFFIRE-I",
@@ -518,6 +521,7 @@
    }
   ],
   "earth_applications": "Material flammability rankings for transport interiors.",
+  "hardware_family": "Saffire flow duct · Cygnus cargo vehicle",
   "psi": {
    "title": "Spacecraft Fire Experiment-II",
    "acronym": "SAFFIRE-II",
@@ -642,6 +646,7 @@
    }
   ],
   "earth_applications": "Ventilation-driven fire growth in confined spaces.",
+  "hardware_family": "Saffire flow duct · Cygnus cargo vehicle",
   "psi": {
    "title": "Spacecraft Fire Experiment-III",
    "acronym": "SAFFIRE-III",
@@ -759,6 +764,7 @@
    }
   ],
   "earth_applications": "Smoke detection for submarines and underwater habitats.",
+  "hardware_family": "Smoke & aerosol instruments",
   "psi": {
    "title": "Smoke and Aerosol Measurement Experiment",
    "acronym": "SAME",
@@ -944,6 +950,7 @@
    }
   ],
   "earth_applications": "Detector designs that reject nuisance alarms.",
+  "hardware_family": "Smoke & aerosol instruments",
   "psi": {
    "title": "Smoke Aerosol Measurement Experiment-Reflight",
    "acronym": "SAME-R",
@@ -1069,6 +1076,7 @@
    }
   ],
   "earth_applications": "Dust-versus-smoke discrimination, as in NASA's incipient fire detector used in mining.",
+  "hardware_family": "Smoke & aerosol instruments",
   "psi": {
    "title": "Dust and Aerosol Measurement Feasibility Test / Dust and Aerosol Measurement Feasibility Test-2",
    "acronym": "DAFT / DAFT-2",
@@ -1155,6 +1163,7 @@
    }
   ],
   "earth_applications": "Validated chemistry models for liquid fuels used in engines; suppressant design.",
+  "hardware_family": "MDCA droplet apparatus · Combustion Integrated Rack",
   "psi": {
    "title": "Flame Extinguishment Experiment",
    "acronym": "FLEX",
@@ -1508,6 +1517,7 @@
    }
   ],
   "earth_applications": "Fuel spray models for engines and biofuels.",
+  "hardware_family": "MDCA droplet apparatus · Combustion Integrated Rack",
   "psi": {
    "title": "Flame Extinguishment Experiment - 2",
    "acronym": "FLEX-2",
@@ -1837,6 +1847,7 @@
    }
   ],
   "earth_applications": "Cool-flame chemistry for cleaner, more efficient engines.",
+  "hardware_family": "MDCA droplet apparatus · Combustion Integrated Rack",
   "psi": {
    "title": "Cool Flames Investigation",
    "acronym": "CFI",
@@ -1966,6 +1977,7 @@
    }
   ],
   "earth_applications": "Cool-flame kinetics for engine design.",
+  "hardware_family": "ACME modules · Combustion Integrated Rack",
   "psi": {
    "title": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
    "acronym": "ACME CFI-G",
@@ -2069,6 +2081,7 @@
    }
   ],
   "earth_applications": "Cleaner, soot-free burner design.",
+  "hardware_family": "ACME modules · Combustion Integrated Rack",
   "psi": {
    "title": "Advanced Combustion via Microgravity Experiments / Flame Design",
    "acronym": "ACME/Flame Design",
@@ -2323,6 +2336,7 @@
    }
   ],
   "earth_applications": "Material property-based fire hazard ranking.",
+  "hardware_family": "ACME modules · Combustion Integrated Rack",
   "psi": {
    "title": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
    "acronym": "ACME BRE",
@@ -2486,6 +2500,7 @@
    }
   ],
   "earth_applications": "Soot models for engines and climate studies.",
+  "hardware_family": "ACME modules · Combustion Integrated Rack",
   "psi": {
    "title": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
    "acronym": "ACME CLD Flame",
@@ -2674,6 +2689,7 @@
    }
   ],
   "earth_applications": "Electric flame control for low-emission combustion.",
+  "hardware_family": "ACME modules · Combustion Integrated Rack",
   "psi": {
    "title": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
    "acronym": "ACME E-FIELD Flames",
@@ -2890,6 +2906,7 @@
    }
   ],
   "earth_applications": "Validated flame models.",
+  "hardware_family": "ACME modules · Combustion Integrated Rack",
   "psi": {
    "title": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
    "acronym": "ACME s-Flame",
@@ -3215,6 +3232,7 @@
    }
   ],
   "earth_applications": "Smoke-point data used in terrestrial fire modeling.",
+  "hardware_family": "SPICE flow duct · Microgravity Science Glovebox",
   "psi": {
    "title": "Smoke Point In Co-flow Experiment",
    "acronym": "SPICE",
@@ -3353,6 +3371,7 @@
    }
   ],
   "earth_applications": "Burner stability and emissions.",
+  "hardware_family": "SPICE flow duct · Microgravity Science Glovebox",
   "psi": {
    "title": "Structure and Liftoff In Combustion Experiment",
    "acronym": "SLICE",
@@ -3360,7 +3379,7 @@
    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-106",
    "project_type": "Microgravity Investigation",
    "platform": "International Space Station (ISS)",
-   "hardware": "",
+   "hardware": "Microgravity Science Glovebox (MSG), SPICE flow duct",
    "sub_area": "",
    "start": "",
    "end": "",
@@ -3469,6 +3488,7 @@
    }
   ],
   "earth_applications": "Soot prediction tools.",
+  "hardware_family": "Ground study (modeling)",
   "psi": {
    "title": "Computational and Experimental Analysis of SPICE Data Sets",
    "acronym": "",
@@ -3537,6 +3557,7 @@
    }
   ],
   "earth_applications": "Faster fire-spread simulation.",
+  "hardware_family": "Ground study (modeling)",
   "psi": {
    "title": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
    "acronym": "",
@@ -3621,6 +3642,7 @@
    }
   ],
   "earth_applications": "Smoke transport modeling.",
+  "hardware_family": "Ground study (modeling)",
   "psi": {
    "title": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
    "acronym": "",
@@ -3683,6 +3705,7 @@
    }
   ],
   "earth_applications": "Engine combustion modeling.",
+  "hardware_family": "Ground study (modeling)",
   "psi": {
    "title": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
    "acronym": "",
@@ -3799,6 +3822,7 @@
    }
   ],
   "earth_applications": "Low-temperature combustion chemistry.",
+  "hardware_family": "Ground study (modeling)",
   "psi": {
    "title": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
    "acronym": "",
